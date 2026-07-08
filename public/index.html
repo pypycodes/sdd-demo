@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NextGen Care Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'ng-dark': '#1e293b',
+            'ng-blue': '#2563eb',
+            'ng-orange': '#f97316',
+            'ng-teal': '#0d9488',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .pulse { animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .fade-in { animation: fadeIn 0.4s ease-out forwards; opacity: 0; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .sidebar-link { transition: all 0.15s; }
+    .sidebar-link:hover { background: rgba(255,255,255,0.1); }
+    .sidebar-link.active { background: rgba(255,255,255,0.15); border-left: 3px solid #f97316; }
+    .card { background: white; border: 1px solid #e5e7eb; border-radius: 12px; }
+    .card-hover:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .action-btn { transition: all 0.15s; }
+    .action-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    details summary { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    .step-badge { font-size: 0.65rem; padding: 3px 10px; border-radius: 9999px; font-weight: 600; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Login Screen -->
+  <div id="login-screen" class="min-h-screen flex">
+    <!-- Left: Decorative -->
+    <div class="hidden lg:flex lg:w-1/2 bg-ng-dark relative overflow-hidden">
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="relative">
+          <div class="w-64 h-64 border-4 border-white/20 rounded-full"></div>
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-4 border-white/15 rounded-full"></div>
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-4 border-white/10 rounded-full"></div>
+          <div class="absolute -top-8 -right-8 w-16 h-16 border-4 border-ng-orange rounded-full"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Right: Login Form -->
+    <div class="flex-1 flex items-center justify-center p-8">
+      <div class="w-full max-w-sm">
+        <div class="flex items-center gap-2 mb-8">
+          <svg class="w-8 h-8 text-ng-orange" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+          <span class="text-2xl font-bold text-ng-dark">nextgen</span>
+          <span class="text-xs text-gray-400 ml-1">HEALTHCARE</span>
+        </div>
+        <h2 class="text-xl font-semibold text-gray-800 mb-6">Sign In</h2>
+        <div class="space-y-4">
+          <div>
+            <label class="text-xs text-gray-500 mb-1 block">Username</label>
+            <select id="login-patient-select" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-ng-blue focus:border-ng-blue">
+              <option value="">Select a patient to simulate...</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs text-gray-500 mb-1 block">Password</label>
+            <input type="password" value="••••••••" disabled class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm bg-gray-50 text-gray-400" />
+            <a href="#" class="text-xs text-ng-blue hover:underline float-right mt-1">Forgot Password?</a>
+          </div>
+          <button onclick="handleLogin()" class="w-full bg-ng-dark text-white rounded-lg px-4 py-3 text-sm font-medium hover:bg-gray-800 transition flex items-center justify-center gap-2 mt-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+            Sign In
+          </button>
+        </div>
+        <p class="text-[10px] text-gray-400 text-center mt-8">
+          By using NextGen, you agree to our <a href="#" class="text-ng-blue hover:underline">User Agreement</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main App (hidden until login) -->
+  <div id="main-app" class="hidden min-h-screen flex">
+    <!-- Sidebar -->
+    <aside class="w-56 bg-ng-dark text-white flex flex-col fixed h-full z-20">
+      <div class="p-4 border-b border-white/10">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-ng-blue rounded-lg flex items-center justify-center text-xs font-bold">P</div>
+          <div>
+            <p class="text-xs text-gray-400">Practice</p>
+            <p class="text-sm font-medium" id="sidebar-practice">Demo Practice</p>
+          </div>
+        </div>
+      </div>
+      <nav class="flex-1 py-4">
+        <a href="#" onclick="showPage('home')" class="sidebar-link active flex items-center gap-3 px-4 py-3 text-sm" data-page="home">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          Home
+        </a>
+        <a href="#" onclick="showPage('todo')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm" data-page="todo">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          To Do
+        </a>
+        <a href="#" onclick="showPage('mycare')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm" data-page="mycare">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          My Care
+        </a>
+        <a href="#" onclick="showPage('messages')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm" data-page="messages">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+          Messages
+        </a>
+        <a href="#" onclick="showPage('health')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm" data-page="health">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Health Summary
+        </a>
+      </nav>
+      <div class="p-4 border-t border-white/10">
+        <button onclick="handleLogout()" class="w-full text-left text-xs text-gray-400 hover:text-white transition">Sign Out</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 ml-56">
+      <!-- Top Bar -->
+      <header class="bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between sticky top-0 z-10">
+        <div></div>
+        <div class="flex items-center gap-4">
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+          </button>
+          <div class="relative">
+            <button onclick="toggleUserMenu()" class="flex items-center gap-2 hover:bg-gray-50 rounded-lg px-2 py-1 transition">
+              <div class="w-8 h-8 bg-ng-orange rounded-full flex items-center justify-center text-white text-xs font-bold" id="user-avatar">MG</div>
+              <span class="text-sm font-medium text-gray-700" id="user-name">Maria Garcia</span>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <!-- User Dropdown Menu -->
+            <div id="user-menu" class="hidden absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+              <div class="px-4 py-2 border-b border-gray-100">
+                <p class="text-xs text-gray-500">Signed in as</p>
+                <p class="text-sm font-medium text-gray-800" id="menu-user-name">Maria Garcia</p>
+              </div>
+              <div class="px-4 py-2 border-b border-gray-100">
+                <p class="text-xs text-gray-500 mb-2">Switch Patient (Demo)</p>
+                <select id="switch-patient-select" onchange="switchPatient()" class="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ng-blue">
+                </select>
+              </div>
+              <button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                Sign Out
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="p-6">
+        <!-- HOME PAGE -->
+        <div id="page-home" class="page-content">
+          <h1 class="text-2xl font-semibold text-gray-800 mb-6">Home</h1>
+          
+          <!-- Notifications -->
+          <div id="notifications-section" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6"></div>
+
+          <!-- Care Team -->
+          <div class="card p-5 mb-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-semibold text-gray-800">Care Team</h3>
+              <button class="text-gray-400 hover:text-gray-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+            <p class="text-sm text-gray-500 mb-4">Your care team is ready and waiting to help.</p>
+            <div id="care-team-list" class="flex gap-3 overflow-x-auto pb-2"></div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Appointments -->
+            <div class="lg:col-span-2 space-y-6">
+              <div class="card p-5">
+                <h3 class="font-semibold text-gray-800 mb-4">Upcoming Appointments</h3>
+                <div id="appointments-list" class="space-y-3"></div>
+                <button onclick="showScheduleModal()" class="mt-4 bg-ng-dark text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-800 transition flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                  Schedule Appointment
+                </button>
+              </div>
+
+              <!-- AI Visit Preparation Card (AI-Powered - NOT Luma) -->
+              <div id="appointment-prep-card" class="card p-5 bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-100 hidden">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center">
+                      <span class="text-xl">✨</span>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-800">AI Visit Preparation</h3>
+                      <p id="prep-appointment-info" class="text-xs text-gray-500">Loading...</p>
+                    </div>
+                  </div>
+                  <span id="prep-days-until" class="text-xs font-medium px-2 py-1 bg-emerald-100 text-emerald-700 rounded-full"></span>
+                </div>
+                
+                <div id="prep-content" class="hidden">
+                  <!-- AI-Suggested Questions (Personalized) -->
+                  <div class="mb-4">
+                    <h4 class="text-sm font-medium text-gray-700 mb-1">Questions to Ask Your Provider</h4>
+                    <p class="text-[10px] text-emerald-600 mb-2">Personalized based on your care history</p>
+                    <ul id="prep-questions" class="space-y-2 text-sm text-gray-600"></ul>
+                  </div>
+                  
+                  <!-- Relevant History Context -->
+                  <div>
+                    <h4 class="text-sm font-medium text-gray-700 mb-2">Relevant Care Context</h4>
+                    <ul id="prep-history" class="space-y-1 text-sm text-gray-500"></ul>
+                  </div>
+                  
+                  <!-- AI Metadata -->
+                  <div id="prep-ai-metadata"></div>
+                </div>
+                
+                <div id="prep-generate" class="text-center">
+                  <p class="text-xs text-gray-600 mb-3">Get AI-powered personalized questions based on your care history.</p>
+                  <button onclick="generateAppointmentPrep()" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-sm px-4 py-2.5 rounded-lg hover:from-emerald-700 hover:to-teal-700 transition flex items-center justify-center gap-2 shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Generate Questions to Ask
+                  </button>
+                </div>
+                
+                <div id="prep-loading" class="hidden text-center py-4">
+                  <div class="inline-flex items-center gap-2 text-sm text-emerald-600">
+                    <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    Analyzing your care history...
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cost Explainer Card (AI-Powered - NOT Luma/Nia) -->
+              <div id="cost-explainer-card" class="card p-5 bg-gradient-to-br from-amber-50 to-orange-50 border-amber-100 hidden">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center">
+                      <span class="text-xl">💰</span>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-800">AI Bill Explainer</h3>
+                      <p id="cost-balance-info" class="text-xs text-gray-500">Loading...</p>
+                    </div>
+                  </div>
+                  <span id="cost-balance-badge" class="text-xs font-medium px-2 py-1 bg-amber-100 text-amber-700 rounded-full"></span>
+                </div>
+                
+                <div id="cost-content" class="hidden">
+                  <!-- Plain Language Summary -->
+                  <div class="mb-4 p-3 bg-white rounded-lg border border-amber-100">
+                    <p id="cost-summary" class="text-sm text-gray-700"></p>
+                  </div>
+                  
+                  <!-- Insurance Explanation -->
+                  <div class="mb-4">
+                    <h4 class="text-sm font-medium text-gray-700 mb-2">What Your Insurance Covered</h4>
+                    <p id="cost-insurance" class="text-sm text-gray-600"></p>
+                  </div>
+                  
+                  <!-- Payment Options -->
+                  <div class="mb-4">
+                    <h4 class="text-sm font-medium text-gray-700 mb-2">Payment Options</h4>
+                    <ul id="cost-options" class="space-y-1 text-sm text-gray-600"></ul>
+                  </div>
+                  
+                  <!-- Questions to Ask -->
+                  <div>
+                    <h4 class="text-sm font-medium text-gray-700 mb-2">Questions You Might Ask</h4>
+                    <ul id="cost-questions" class="space-y-1 text-sm text-gray-500"></ul>
+                  </div>
+                  
+                  <!-- AI Metadata -->
+                  <div id="cost-ai-metadata"></div>
+                </div>
+                
+                <div id="cost-generate" class="text-center">
+                  <p class="text-xs text-gray-600 mb-3">Get a plain-language explanation of your bill and payment options.</p>
+                  <button onclick="generateCostExplainer()" class="w-full bg-gradient-to-r from-amber-600 to-orange-600 text-white text-sm px-4 py-2.5 rounded-lg hover:from-amber-700 hover:to-orange-700 transition flex items-center justify-center gap-2 shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    Explain My Bill
+                  </button>
+                </div>
+                
+                <div id="cost-loading" class="hidden text-center py-4">
+                  <div class="inline-flex items-center gap-2 text-sm text-amber-600">
+                    <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    Analyzing your billing...
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- AI Insights Card -->
+            <div class="space-y-4">
+              <div id="home-ai-card" class="card p-5 bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-100">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
+                    <span class="text-xl">🤖</span>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-gray-800 text-sm">AI Care Insights</h3>
+                    <p class="text-xs text-gray-500">Personalized recommendations</p>
+                  </div>
+                </div>
+                <div id="home-ai-content">
+                  <p class="text-xs text-gray-600 mb-3">Get AI-powered next best steps based on your care journey.</p>
+                  <button onclick="triggerAiAnalysisFromHome()" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm px-4 py-2.5 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition flex items-center justify-center gap-2 shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    Generate Next Best Steps
+                  </button>
+                </div>
+                <div id="home-ai-loading" class="hidden text-center py-2">
+                  <div class="inline-flex items-center gap-2 text-sm text-blue-600">
+                    <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    Analyzing your care journey...
+                  </div>
+                </div>
+                <div id="home-ai-result" class="hidden"></div>
+              </div>
+
+              <!-- Shortcuts -->
+              <h3 class="font-semibold text-gray-800">Shortcuts</h3>
+              <button onclick="showPage('health')" class="card p-4 w-full text-left card-hover action-btn flex items-center gap-3">
+                <svg class="w-5 h-5 text-ng-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                <span class="text-sm font-medium text-gray-700">View Results</span>
+              </button>
+              <button onclick="showScheduleModal()" class="card p-4 w-full text-left card-hover action-btn flex items-center gap-3">
+                <svg class="w-5 h-5 text-ng-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span class="text-sm font-medium text-gray-700">Schedule Appointment</span>
+              </button>
+              <button onclick="showMessageModal()" class="card p-4 w-full text-left card-hover action-btn flex items-center gap-3">
+                <svg class="w-5 h-5 text-ng-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                <span class="text-sm font-medium text-gray-700">Message Provider</span>
+              </button>
+              <button onclick="scrollToCostExplainer()" class="card p-4 w-full text-left card-hover action-btn flex items-center gap-3">
+                <svg class="w-5 h-5 text-ng-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                <span class="text-sm font-medium text-gray-700">Manage Payments</span>
+                <span id="shortcut-balance" class="ml-auto text-xs text-ng-orange font-medium"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MY CARE PAGE -->
+        <div id="page-mycare" class="page-content hidden">
+          <h1 class="text-2xl font-semibold text-gray-800 mb-2">My Care</h1>
+          <div class="flex gap-4 border-b border-gray-200 mb-6">
+            <button class="pb-3 text-sm font-medium text-ng-blue border-b-2 border-ng-blue">Care Journey</button>
+            <button class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-700">Care Team</button>
+          </div>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Timeline -->
+            <div class="lg:col-span-2">
+              <div class="card p-5">
+                <h3 class="font-semibold text-gray-800 mb-4">Care Journey</h3>
+                <div class="flex items-center gap-2 mb-4">
+                  <div class="flex-1 relative">
+                    <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <input type="text" placeholder="Search..." class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-ng-blue focus:border-ng-blue" />
+                  </div>
+                  <select class="border border-gray-200 rounded-lg px-3 py-2 text-sm">
+                    <option>Past Care</option>
+                    <option>Upcoming</option>
+                    <option>All</option>
+                  </select>
+                </div>
+                <div id="care-timeline" class="space-y-3 max-h-[500px] overflow-y-auto"></div>
+              </div>
+            </div>
+
+            <!-- AI Insights Panel -->
+            <div class="space-y-4">
+              <div id="ai-loading" class="hidden card p-6 text-center">
+                <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-ng-blue border-t-transparent mb-3"></div>
+                <p class="text-sm text-gray-600">Analyzing your care journey...</p>
+              </div>
+              <div id="ai-insights" class="space-y-4"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HEALTH SUMMARY PAGE -->
+        <div id="page-health" class="page-content hidden">
+          <h1 class="text-2xl font-semibold text-gray-800 mb-2">Health Summary</h1>
+          <div class="flex gap-4 border-b border-gray-200 mb-6 overflow-x-auto">
+            <button class="pb-3 text-sm font-medium text-ng-blue border-b-2 border-ng-blue whitespace-nowrap">Medical Profile</button>
+            <button class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap">Personal Info</button>
+            <button class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap">Insurance</button>
+            <button class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap">Payments</button>
+            <button class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap">Documents</button>
+          </div>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <div class="card p-4">
+                <p class="text-xs text-gray-500 mb-2">Medical Profile</p>
+                <p class="text-sm text-gray-600 mb-4">We have the following information in your health record.</p>
+              </div>
+              <div id="health-sections" class="space-y-2"></div>
+            </div>
+            <div class="card p-6">
+              <div id="health-detail" class="text-center text-gray-400 py-12">
+                <svg class="w-12 h-12 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <p class="text-sm">Select a section to view details</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TO DO PAGE -->
+        <div id="page-todo" class="page-content hidden">
+          <h1 class="text-2xl font-semibold text-gray-800 mb-6">To Do</h1>
+          <div id="todo-list" class="space-y-4"></div>
+        </div>
+
+        <!-- MESSAGES PAGE -->
+        <div id="page-messages" class="page-content hidden">
+          <h1 class="text-2xl font-semibold text-gray-800 mb-6">Messages</h1>
+          <div class="card p-6 text-center text-gray-400">
+            <svg class="w-12 h-12 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+            <p class="text-sm mb-4">No messages yet</p>
+            <button onclick="showMessageModal()" class="bg-ng-dark text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-800 transition">
+              Start a Conversation
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="text-center py-4 text-[11px] text-gray-400 border-t border-gray-100">
+        Care Journey Tracker POC — For demonstration purposes only
+      </footer>
+    </main>
+  </div>
+
+  <!-- Schedule Modal -->
+  <div id="schedule-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl max-w-md w-full p-6 fade-in">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-semibold text-gray-800">Schedule Appointment</h3>
+        <button onclick="closeModals()" class="text-gray-400 hover:text-gray-600">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <p class="text-sm text-gray-500 mb-4">This would connect to <strong>Luma Health</strong> for intelligent appointment scheduling.</p>
+      <div class="bg-purple-50 border border-purple-200 rounded-lg p-4 mb-4">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-purple-600 font-semibold text-sm">Luma Health Integration</span>
+        </div>
+        <p class="text-xs text-purple-700 mb-3">In production, Luma would handle:</p>
+        <ul class="text-xs text-purple-600 space-y-1.5">
+          <li class="flex items-center gap-2">✓ Intelligent appointment scheduling with AI</li>
+          <li class="flex items-center gap-2">✓ Automated appointment reminders (SMS/Email)</li>
+          <li class="flex items-center gap-2">✓ Pre-visit forms & questionnaires</li>
+          <li class="flex items-center gap-2">✓ Items to bring checklist</li>
+          <li class="flex items-center gap-2">✓ Directions & parking information</li>
+          <li class="flex items-center gap-2">✓ Waitlist management</li>
+        </ul>
+      </div>
+      <button onclick="closeModals()" class="w-full bg-ng-dark text-white rounded-lg px-4 py-3 text-sm font-medium hover:bg-gray-800 transition">
+        Close Demo
+      </button>
+    </div>
+  </div>
+
+  <!-- Message Modal -->
+  <div id="message-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl max-w-md w-full p-6 fade-in">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-semibold text-gray-800">Message Provider</h3>
+        <button onclick="closeModals()" class="text-gray-400 hover:text-gray-600">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <p class="text-sm text-gray-500 mb-4">Send a secure message to your care team.</p>
+      <select class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm mb-3">
+        <option>Select Provider...</option>
+      </select>
+      <textarea placeholder="Type your message..." class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm h-24 resize-none mb-4"></textarea>
+      <button onclick="closeModals()" class="w-full bg-ng-dark text-white rounded-lg px-4 py-3 text-sm font-medium hover:bg-gray-800 transition">
+        Send Message
+      </button>
+    </div>
+  </div>
+
+  <!-- Voice Assistant Floating Button (Elderly-Friendly) -->
+  <button id="voice-fab" onclick="toggleVoiceAssistant()" class="hidden fixed bottom-6 right-6 w-20 h-20 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full shadow-2xl flex items-center justify-center hover:from-purple-700 hover:to-indigo-700 transition-all z-50 group">
+    <svg id="voice-fab-icon" class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+    <span id="voice-fab-pulse" class="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-20 animate-ping"></span>
+  </button>
+
+  <!-- Voice Assistant Modal (Elderly-Friendly) -->
+  <div id="voice-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 fade-in">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center">
+            <span class="text-2xl">🎤</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-gray-800">Voice Assistant</h2>
+            <p class="text-sm text-gray-500">Ask me anything about your care</p>
+          </div>
+        </div>
+        <button onclick="toggleVoiceAssistant()" class="text-gray-400 hover:text-gray-600 p-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      
+      <!-- Voice Input Section -->
+      <div class="mb-6">
+        <button id="voice-record-btn" onclick="handleInterrupt()" class="w-full h-32 bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-dashed border-purple-300 rounded-xl flex flex-col items-center justify-center gap-3 hover:border-purple-400 hover:bg-purple-100 transition-all">
+          <div id="voice-record-icon" class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+          </div>
+          <span id="voice-record-text" class="text-lg font-semibold text-purple-700">Ready</span>
+          <span id="voice-record-status" class="text-sm text-gray-500">Listening for your response</span>
+        </button>
+      </div>
+      
+      <!-- Text Input Fallback (hidden in auto-mode but available for manual use) -->
+      <div class="mb-6 hidden">
+        <textarea id="voice-text-input" placeholder="Type your question here..." class="w-full border border-gray-200 rounded-xl px-4 py-3 text-lg resize-none h-24 focus:border-purple-400 focus:ring-2 focus:ring-purple-100"></textarea>
+      </div>
+      
+      <!-- Send Button (hidden - auto-send is enabled) -->
+      <button id="voice-send-btn" onclick="sendVoiceMessage()" class="hidden w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-lg font-semibold px-6 py-4 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition flex items-center justify-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+        Send
+      </button>
+      
+      <!-- AI Response Section -->
+      <div id="voice-response" class="hidden mt-6 p-4 bg-gray-50 rounded-xl">
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-sm">🤖</span>
+          </div>
+          <div class="flex-1">
+            <p id="voice-response-text" class="text-gray-700 text-lg"></p>
+            <button id="voice-play-response" onclick="playVoiceResponse()" class="mt-2 text-sm text-purple-600 hover:text-purple-800 flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+              Play Response
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Transcript Section -->
+      <div class="mt-6 pt-6 border-t border-gray-200">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-semibold text-gray-800">Conversation History</h3>
+          <button onclick="loadTranscripts()" class="text-sm text-purple-600 hover:text-purple-800">Refresh</button>
+        </div>
+        <div id="voice-transcripts" class="space-y-3 max-h-48 overflow-y-auto">
+          <p class="text-sm text-gray-500 text-center py-4">No conversations yet</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Metadata (collapsible at bottom) -->
+  <details id="ai-metadata-wrapper" class="hidden fixed bottom-4 right-4 bg-white rounded-lg shadow-lg border border-gray-200 z-40 max-w-sm">
+    <summary class="px-4 py-2 text-xs text-gray-500 hover:text-gray-700 cursor-pointer flex items-center gap-1">
+      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      AI Provider Info
+    </summary>
+    <div id="ai-metadata" class="px-4 pb-3 text-xs"></div>
+  </details>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+{
+  "transcripts": [
+    {
+      "id": "VC-1781973510308-bgsioyi1t",
+      "patientId": "P009",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "when is my next appointmnet",
+          "timestamp": "2026-06-20T16:38:28.553Z"
+        },
+        {
+          "role": "user",
+          "text": "when is my next appointmnet",
+          "timestamp": "2026-06-20T16:38:30.019Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You've made significant progress in managing your Rheumatoid Arthritis, achieving a low disease activity state with the help of biologic therapy and methotrexate. Your regular follow-ups and lab tests have been crucial in monitoring your condition and adjusting your treatment plan as needed. Continuing this care routine will be important for maintaining your current state and preventing disease progression.",
+          "timestamp": "2026-06-20T16:38:30.281Z"
+        }
+      ],
+      "duration": 0,
+      "summary": "You: when is my next appointmnet\nYou: when is my next appointmnet\nAI: You've made significant progress in managing your Rheumatoid Arthritis, achieving a low disease activity state with the help of biologic therapy and methotrexate. Your regular follow-ups and lab tests have been crucial in monitoring your condition and adjusting your treatment plan as needed. Continuing this care routine will be important for maintaining your current state and preventing disease progression.",
+      "timestamp": "2026-06-20T16:38:30.308Z"
+    },
+    {
+      "id": "VC-1781973511916-tqretjhyn",
+      "patientId": "P009",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "when is my next appointmnet",
+          "timestamp": "2026-06-20T16:38:28.553Z"
+        },
+        {
+          "role": "user",
+          "text": "when is my next appointmnet",
+          "timestamp": "2026-06-20T16:38:30.019Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You've made significant progress in managing your Rheumatoid Arthritis, achieving a low disease activity state with the help of biologic therapy and methotrexate. Your regular follow-ups and lab tests have been crucial in monitoring your condition and adjusting your treatment plan as needed. Continuing this care routine will be important for maintaining your current state and preventing disease progression.",
+          "timestamp": "2026-06-20T16:38:30.281Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You've made significant progress in managing your Rheumatoid Arthritis with biologic therapy and have achieved a low disease activity state. Your regular follow-ups and lab tests have been crucial in monitoring your condition and adjusting your treatment plan as needed. Continuing this close monitoring will help maintain control over your symptoms and prevent further joint damage.",
+          "timestamp": "2026-06-20T16:38:31.911Z"
+        }
+      ],
+      "duration": 0,
+      "summary": "You: when is my next appointmnet\nYou: when is my next appointmnet\nAI: You've made significant progress in managing your Rheumatoid Arthritis, achieving a low disease activity state with the help of biologic therapy and methotrexate. Your regular follow-ups and lab tests have been crucial in monitoring your condition and adjusting your treatment plan as needed. Continuing this care routine will be important for maintaining your current state and preventing disease progression.\nAI: You've made significant progress in managing your Rheumatoid Arthritis with biologic therapy and have achieved a low disease activity state. Your regular follow-ups and lab tests have been crucial in monitoring your condition and adjusting your treatment plan as needed. Continuing this close monitoring will help maintain control over your symptoms and prevent further joint damage.",
+      "timestamp": "2026-06-20T16:38:31.916Z"
+    },
+    {
+      "id": "VC-1781973572415-tph0jigws",
+      "patientId": "P006",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "Generate Next Best Steps for Me",
+          "timestamp": "2026-06-20T16:39:30.845Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You've made significant progress in managing your asthma symptoms, especially with the introduction of Dupilumab therapy. Your recent follow-ups have shown improved symptom control and reduced need for rescue inhalers. However, it's crucial to continue monitoring your condition, especially during seasonal changes, to ensure your treatment plan remains effective.",
+          "timestamp": "2026-06-20T16:39:32.406Z"
+        }
+      ],
+      "duration": 0,
+      "summary": "You: Generate Next Best Steps for Me\nAI: You've made significant progress in managing your asthma symptoms, especially with the introduction of Dupilumab therapy. Your recent follow-ups have shown improved symptom control and reduced need for rescue inhalers. However, it's crucial to continue monitoring your condition, especially during seasonal changes, to ensure your treatment plan remains effective.",
+      "timestamp": "2026-06-20T16:39:32.415Z"
+    },
+    {
+      "id": "VC-1782199465744-lvy10zh47",
+      "patientId": "P007",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "show me next best steps",
+          "timestamp": "2026-06-23T07:24:24.290Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You've made great progress in managing your hypothyroidism, with stable TSH levels and good symptom control. Your current treatment plan is working well for you, and it's essential to continue monitoring your condition to ensure your thyroid hormone levels remain within the target range. You've also been managing your type 2 diabetes and hypertension, which is crucial for your overall health.",
+          "timestamp": "2026-06-23T07:24:25.731Z"
+        }
+      ],
+      "duration": 75211,
+      "summary": "You: show me next best steps\nAI: You've made great progress in managing your hypothyroidism, with stable TSH levels and good symptom control. Your current treatment plan is working well for you, and it's essential to continue monitoring your condition to ensure your thyroid hormone levels remain within the target range. You've also been managing your type 2 diabetes and hypertension, which is crucial for your overall health.",
+      "timestamp": "2026-06-23T07:24:25.744Z"
+    },
+    {
+      "id": "VC-1782199511937-th2b13gtl",
+      "patientId": "P007",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "show me next best steps",
+          "timestamp": "2026-06-23T07:24:24.290Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You've made great progress in managing your hypothyroidism, with stable TSH levels and good symptom control. Your current treatment plan is working well for you, and it's essential to continue monitoring your condition to ensure your thyroid hormone levels remain within the target range. You've also been managing your type 2 diabetes and hypertension, which is crucial for your overall health.",
+          "timestamp": "2026-06-23T07:24:25.731Z"
+        },
+        {
+          "role": "user",
+          "text": "when is my next appointment scheduled",
+          "timestamp": "2026-06-23T07:25:10.393Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You've made significant progress in managing your hypothyroidism, with stable TSH levels and good symptom control. Your current treatment plan is working well for you, and it's essential to continue monitoring your condition to ensure your thyroid hormone levels remain within the target range. You've also been managing your type 2 diabetes and hypertension, which is crucial for your overall health.",
+          "timestamp": "2026-06-23T07:25:11.924Z"
+        }
+      ],
+      "duration": 121405,
+      "summary": "You: show me next best steps\nAI: You've made great progress in managing your hypothyroidism, with stable TSH levels and good symptom control. Your current treatment plan is working well for you, and it's essential to continue monitoring your condition to ensure your thyroid hormone levels remain within the target range. You've also been managing your type 2 diabetes and hypertension, which is crucial for your overall health.\nYou: when is my next appointment scheduled\nAI: You've made significant progress in managing your hypothyroidism, with stable TSH levels and good symptom control. Your current treatment plan is working well for you, and it's essential to continue monitoring your condition to ensure your thyroid hormone levels remain within the target range. You've also been managing your type 2 diabetes and hypertension, which is crucial for your overall health.",
+      "timestamp": "2026-06-23T07:25:11.937Z"
+    },
+    {
+      "id": "VC-1782199536233-6lbpzfpi9",
+      "patientId": "P007",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "show me my appointments",
+          "timestamp": "2026-06-23T07:25:34.720Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You've made great progress in managing your hypothyroidism, with stable TSH levels and good symptom control. Your medication regimen has been effective, and you've been diligent about follow-up visits and lab checks. It's essential to continue monitoring your condition to ensure your treatment plan remains on track.",
+          "timestamp": "2026-06-23T07:25:36.226Z"
+        }
+      ],
+      "duration": 10446,
+      "summary": "You: show me my appointments\nAI: You've made great progress in managing your hypothyroidism, with stable TSH levels and good symptom control. Your medication regimen has been effective, and you've been diligent about follow-up visits and lab checks. It's essential to continue monitoring your condition to ensure your treatment plan remains on track.",
+      "timestamp": "2026-06-23T07:25:36.233Z"
+    },
+    {
+      "id": "VC-1782199572797-gs86blp2g",
+      "patientId": "P001",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "when is my next appointment",
+          "timestamp": "2026-06-23T07:26:10.515Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You've made great progress with managing your Type 2 Diabetes, and it's essential to continue monitoring your condition. Your recent lab tests and follow-up appointments have helped your care team adjust your treatment plan. You have upcoming appointments scheduled to further support your diabetes management.",
+          "timestamp": "2026-06-23T07:26:12.793Z"
+        }
+      ],
+      "duration": 17592,
+      "summary": "You: when is my next appointment\nAI: You've made great progress with managing your Type 2 Diabetes, and it's essential to continue monitoring your condition. Your recent lab tests and follow-up appointments have helped your care team adjust your treatment plan. You have upcoming appointments scheduled to further support your diabetes management.",
+      "timestamp": "2026-06-23T07:26:12.796Z"
+    },
+    {
+      "id": "VC-1782200282153-sac29w1nt",
+      "patientId": "P001",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "show me my appointments",
+          "timestamp": "2026-06-23T07:38:02.130Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+          "timestamp": "2026-06-23T07:38:02.133Z"
+        }
+      ],
+      "duration": 6524,
+      "summary": "You: show me my appointments\nAI: You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+      "timestamp": "2026-06-23T07:38:02.151Z"
+    },
+    {
+      "id": "VC-1782200317908-r28f262pf",
+      "patientId": "P001",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "show me my appointments",
+          "timestamp": "2026-06-23T07:38:02.130Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+          "timestamp": "2026-06-23T07:38:02.133Z"
+        },
+        {
+          "role": "user",
+          "text": "who is my kitchen",
+          "timestamp": "2026-06-23T07:38:35.439Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You've made great progress with managing your Type 2 Diabetes, and it's time to check in with your care team to review your management plan and make any necessary adjustments. Your recent lab tests and education sessions have been helpful in understanding your condition better. Now, it's essential to follow up with your primary care provider and diabetes educator to ensure you're on the right track.",
+          "timestamp": "2026-06-23T07:38:37.904Z"
+        }
+      ],
+      "duration": 42295,
+      "summary": "You: show me my appointments\nAI: You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.\nYou: who is my kitchen\nAI: You've made great progress with managing your Type 2 Diabetes, and it's time to check in with your care team to review your management plan and make any necessary adjustments. Your recent lab tests and education sessions have been helpful in understanding your condition better. Now, it's essential to follow up with your primary care provider and diabetes educator to ensure you're on the right track.",
+      "timestamp": "2026-06-23T07:38:37.907Z"
+    },
+    {
+      "id": "VC-1782200340523-sc2k7tcxt",
+      "patientId": "P001",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "show me my next best steps",
+          "timestamp": "2026-06-23T07:38:57.736Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You've made great progress with managing your Type 2 Diabetes, and it's essential to continue monitoring your condition and adjusting your treatment plan as needed. Your recent visits and lab tests have provided valuable insights into your health, and your upcoming appointments will help you stay on track. You've also taken steps to educate yourself on diabetes management, which is a significant part of your care journey.",
+          "timestamp": "2026-06-23T07:39:00.518Z"
+        }
+      ],
+      "duration": 9717,
+      "summary": "You: show me my next best steps\nAI: You've made great progress with managing your Type 2 Diabetes, and it's essential to continue monitoring your condition and adjusting your treatment plan as needed. Your recent visits and lab tests have provided valuable insights into your health, and your upcoming appointments will help you stay on track. You've also taken steps to educate yourself on diabetes management, which is a significant part of your care journey.",
+      "timestamp": "2026-06-23T07:39:00.523Z"
+    },
+    {
+      "id": "VC-1782200374848-7tegdqg42",
+      "patientId": "P001",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "show me my next best steps",
+          "timestamp": "2026-06-23T07:38:57.736Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You've made great progress with managing your Type 2 Diabetes, and it's essential to continue monitoring your condition and adjusting your treatment plan as needed. Your recent visits and lab tests have provided valuable insights into your health, and your upcoming appointments will help you stay on track. You've also taken steps to educate yourself on diabetes management, which is a significant part of your care journey.",
+          "timestamp": "2026-06-23T07:39:00.518Z"
+        },
+        {
+          "role": "user",
+          "text": "show me my visit preparation for my next appointment",
+          "timestamp": "2026-06-23T07:39:34.837Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+          "timestamp": "2026-06-23T07:39:34.837Z"
+        }
+      ],
+      "duration": 44035,
+      "summary": "You: show me my next best steps\nAI: You've made great progress with managing your Type 2 Diabetes, and it's essential to continue monitoring your condition and adjusting your treatment plan as needed. Your recent visits and lab tests have provided valuable insights into your health, and your upcoming appointments will help you stay on track. You've also taken steps to educate yourself on diabetes management, which is a significant part of your care journey.\nYou: show me my visit preparation for my next appointment\nAI: You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+      "timestamp": "2026-06-23T07:39:34.847Z"
+    },
+    {
+      "id": "VC-1782202980356-o7wkyb6vq",
+      "patientId": "P001",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "show me my next best steps",
+          "timestamp": "2026-06-23T07:38:57.736Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You've made great progress with managing your Type 2 Diabetes, and it's essential to continue monitoring your condition and adjusting your treatment plan as needed. Your recent visits and lab tests have provided valuable insights into your health, and your upcoming appointments will help you stay on track. You've also taken steps to educate yourself on diabetes management, which is a significant part of your care journey.",
+          "timestamp": "2026-06-23T07:39:00.518Z"
+        },
+        {
+          "role": "user",
+          "text": "show me my visit preparation for my next appointment",
+          "timestamp": "2026-06-23T07:39:34.837Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+          "timestamp": "2026-06-23T07:39:34.837Z"
+        },
+        {
+          "role": "user",
+          "text": "can you book me an appointment",
+          "timestamp": "2026-06-23T08:23:00.351Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+          "timestamp": "2026-06-23T08:23:00.352Z"
+        }
+      ],
+      "duration": 2649550,
+      "summary": "You: show me my next best steps\nAI: You've made great progress with managing your Type 2 Diabetes, and it's essential to continue monitoring your condition and adjusting your treatment plan as needed. Your recent visits and lab tests have provided valuable insights into your health, and your upcoming appointments will help you stay on track. You've also taken steps to educate yourself on diabetes management, which is a significant part of your care journey.\nYou: show me my visit preparation for my next appointment\nAI: You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.\nYou: can you book me an appointment\nAI: You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+      "timestamp": "2026-06-23T08:23:00.356Z"
+    },
+    {
+      "id": "VC-1783416108086-ca8lnzhhl",
+      "patientId": "P001",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "when is my next appointment",
+          "timestamp": "2026-07-07T09:21:48.042Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+          "timestamp": "2026-07-07T09:21:48.047Z"
+        }
+      ],
+      "duration": 6747,
+      "summary": "You: when is my next appointment\nAI: You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+      "timestamp": "2026-07-07T09:21:48.086Z"
+    },
+    {
+      "id": "VC-1783416121241-sf1aj6d9j",
+      "patientId": "P001",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "when is my next appointment",
+          "timestamp": "2026-07-07T09:21:48.042Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+          "timestamp": "2026-07-07T09:21:48.047Z"
+        },
+        {
+          "role": "user",
+          "text": "the year of the elderly",
+          "timestamp": "2026-07-07T09:21:58.906Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You've made great progress with managing your Type 2 Diabetes, and it's essential to continue monitoring your condition. Your care team has been working closely with you to adjust your management plan as needed. You have upcoming appointments scheduled to review your progress and make any necessary adjustments.",
+          "timestamp": "2026-07-07T09:22:01.235Z"
+        }
+      ],
+      "duration": 19934,
+      "summary": "You: when is my next appointment\nAI: You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.\nYou: the year of the elderly\nAI: You've made great progress with managing your Type 2 Diabetes, and it's essential to continue monitoring your condition. Your care team has been working closely with you to adjust your management plan as needed. You have upcoming appointments scheduled to review your progress and make any necessary adjustments.",
+      "timestamp": "2026-07-07T09:22:01.241Z"
+    }
+  ]
+}
