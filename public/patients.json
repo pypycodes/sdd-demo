@@ -1,0 +1,2245 @@
+{
+  "patients": [
+    {
+      "id": "P001",
+      "name": "David Kumar",
+      "age": 52,
+      "gender": "Male",
+      "email": "david.kumar.52@outlook.com",
+      "phone": "(555) 847-3921",
+      "primaryDiagnosis": "Type 2 Diabetes Mellitus",
+      "conditions": [
+        "Type 2 Diabetes Mellitus"
+      ],
+      "allergies": [],
+      "medications": [
+        "Metformin 500mg twice daily"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Sarah Mitchell",
+          "role": "Primary Care Physician",
+          "phone": "(555) 612-4789"
+        },
+        {
+          "name": "Linda Torres",
+          "role": "Certified Diabetes Educator",
+          "phone": "(555) 612-4790"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E001-01",
+          "date": "2024-01-15",
+          "category": "visit",
+          "title": "Initial Diabetes Diagnosis and Management Plan",
+          "description": "First office visit where Type 2 Diabetes was diagnosed based on fasting glucose level of 156 mg/dL and HbA1c of 7.8%. Patient counseled on disease process, lifestyle modifications, and initiated on Metformin 500mg twice daily. Referral provided to diabetes educator for further education and nutrition counseling.",
+          "provider": "Dr. Sarah Mitchell",
+          "status": "completed"
+        }
+      ],
+      "upcomingAppointments": [
+        {
+          "id": "APT001-01",
+          "date": "2026-06-15",
+          "time": "10:30 AM",
+          "provider": "Dr. Sarah Mitchell",
+          "specialty": "Primary Care",
+          "type": "Diabetes Follow-up",
+          "location": "NextGen Medical Center, Suite 201",
+          "reason": "3-month diabetes management review and medication adjustment"
+        },
+        {
+          "id": "APT001-02",
+          "date": "2026-06-22",
+          "time": "2:00 PM",
+          "provider": "Linda Torres",
+          "specialty": "Diabetes Education",
+          "type": "Nutrition Counseling",
+          "location": "NextGen Medical Center, Suite 105",
+          "reason": "Dietary planning and glucose monitoring education"
+        }
+      ],
+      "billing": {
+        "totalCharges": 847.00,
+        "insurancePaid": 612.50,
+        "adjustments": 127.00,
+        "patientResponsibility": 107.50,
+        "amountPaid": 25.00,
+        "balanceDue": 82.50,
+        "paymentPlanAvailable": true,
+        "items": [
+          {
+            "service": "Office Visit - Established Patient (Level 4)",
+            "date": "2026-05-15",
+            "provider": "Dr. Sarah Mitchell",
+            "chargedAmount": 285.00,
+            "insurancePaid": 198.50,
+            "adjustments": 56.50,
+            "patientResponsibility": 30.00,
+            "status": "pending"
+          },
+          {
+            "service": "HbA1c Laboratory Test",
+            "date": "2026-05-15",
+            "provider": "NextGen Lab Services",
+            "chargedAmount": 87.00,
+            "insurancePaid": 72.00,
+            "adjustments": 15.00,
+            "patientResponsibility": 0.00,
+            "status": "paid"
+          },
+          {
+            "service": "Comprehensive Metabolic Panel",
+            "date": "2026-05-15",
+            "provider": "NextGen Lab Services",
+            "chargedAmount": 125.00,
+            "insurancePaid": 102.00,
+            "adjustments": 23.00,
+            "patientResponsibility": 0.00,
+            "status": "paid"
+          },
+          {
+            "service": "Diabetes Education Session (60 min)",
+            "date": "2026-05-20",
+            "provider": "Linda Torres",
+            "chargedAmount": 350.00,
+            "insurancePaid": 240.00,
+            "adjustments": 32.50,
+            "patientResponsibility": 77.50,
+            "status": "pending"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P002",
+      "name": "David Sullivan",
+      "age": 28,
+      "gender": "Male",
+      "email": "david.sullivan@email.com",
+      "phone": "(555) 742-8361",
+      "primaryDiagnosis": "Routine annual wellness visit",
+      "conditions": [],
+      "allergies": [],
+      "medications": [],
+      "careTeam": [
+        {
+          "name": "Dr. Patricia Harrison",
+          "role": "Primary Care Physician",
+          "phone": "(555) 482-9017"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E002-01",
+          "date": "2024-03-15",
+          "category": "visit",
+          "title": "Annual Wellness Visit",
+          "description": "First annual physical examination. Patient reports feeling well with no acute complaints. Vital signs normal. Physical examination unremarkable. Patient counseled on preventive health measures and health maintenance.",
+          "provider": "Dr. Patricia Harrison",
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "id": "P003",
+      "name": "David Thompson",
+      "age": 26,
+      "gender": "Male",
+      "email": "dthompson.26@gmail.com",
+      "phone": "(555) 287-4092",
+      "primaryDiagnosis": "Acute ankle fracture",
+      "conditions": [
+        "Right ankle fracture (sports injury)"
+      ],
+      "allergies": [
+        "Penicillin"
+      ],
+      "medications": [
+        "Ibuprofen 400mg as needed for pain",
+        "Acetaminophen 500mg as needed for pain"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Sarah Williams",
+          "role": "Emergency Medicine Physician",
+          "phone": "(555) 642-8731"
+        },
+        {
+          "name": "Jennifer Liu",
+          "role": "Orthopedic Care Coordinator",
+          "phone": "(555) 642-8750"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E003-01",
+          "date": "2024-01-15",
+          "category": "visit",
+          "title": "Emergency Department Visit - Ankle Fracture",
+          "description": "Patient presented to urgent care with acute right ankle fracture sustained during recreational soccer match. X-ray imaging confirmed non-displaced fracture of right lateral malleolus. Ankle immobilized with fiber glass cast. Pain managed with ibuprofen. Follow-up orthopedic evaluation scheduled.",
+          "provider": "Riverdale Urgent Care Center",
+          "status": "completed"
+        }
+      ],
+      "upcomingAppointments": [
+        {
+          "id": "APT003-01",
+          "date": "2026-06-12",
+          "time": "9:00 AM",
+          "provider": "Dr. Michael Chen",
+          "specialty": "Orthopedics",
+          "type": "Fracture Follow-up",
+          "location": "NextGen Orthopedic Center, Suite 300",
+          "reason": "6-week post-fracture evaluation and cast removal assessment"
+        }
+      ]
+    },
+    {
+      "id": "P004",
+      "name": "Amanda Rodriguez",
+      "age": 28,
+      "gender": "Female",
+      "email": "amanda.rodriguez.28@email.com",
+      "phone": "(555) 247-3891",
+      "primaryDiagnosis": "Healthy first-trimester pregnancy",
+      "conditions": [
+        "Pregnancy, first trimester"
+      ],
+      "allergies": [
+        "Penicillin"
+      ],
+      "medications": [
+        "Prenatal vitamins with folic acid"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Sarah Mitchell",
+          "role": "Obstetrician/Gynecologist",
+          "phone": "(555) 342-7156"
+        },
+        {
+          "name": "Lisa Chen",
+          "role": "Obstetric Nurse",
+          "phone": "(555) 342-7160"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E004-01",
+          "date": "2024-01-15",
+          "category": "visit",
+          "title": "Initial OB Intake Visit",
+          "description": "First prenatal visit. Patient confirmed pregnancy at 10 weeks gestation. Vital signs stable, no complications. Ultrasound confirmed viable intrauterine pregnancy with appropriate dating. Patient educated on prenatal care, nutrition, and activity modifications. Prescribed prenatal vitamins.",
+          "provider": "Dr. Sarah Mitchell",
+          "status": "completed"
+        }
+      ],
+      "upcomingAppointments": [
+        {
+          "id": "APT004-01",
+          "date": "2026-06-18",
+          "time": "11:00 AM",
+          "provider": "Dr. Sarah Mitchell",
+          "specialty": "Obstetrics",
+          "type": "Prenatal Checkup",
+          "location": "Women's Health Center, Suite 400",
+          "reason": "Second trimester prenatal visit and anatomy ultrasound"
+        }
+      ]
+    },
+    {
+      "id": "P005",
+      "name": "Margaret Chen",
+      "age": 58,
+      "gender": "Female",
+      "email": "margaret.chen1966@gmail.com",
+      "phone": "(555) 284-7623",
+      "primaryDiagnosis": "Essential Hypertension, well-controlled",
+      "conditions": [
+        "Essential Hypertension",
+        "Hyperlipidemia",
+        "Type 2 Diabetes Mellitus",
+        "Overweight (BMI 27.2)"
+      ],
+      "allergies": [
+        "Lisinopril (dry cough)",
+        "NSAIDs (GI upset)"
+      ],
+      "medications": [
+        "Amlodipine 5 mg daily",
+        "Hydrochlorothiazide 25 mg daily",
+        "Metoprolol tartrate 50 mg twice daily",
+        "Atorvastatin 20 mg daily",
+        "Metformin 1000 mg twice daily",
+        "Aspirin 81 mg daily"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. James Morrison",
+          "role": "Primary Care Physician",
+          "phone": "(555) 342-1089"
+        },
+        {
+          "name": "Dr. Sarah Patel",
+          "role": "Cardiologist",
+          "phone": "(555) 458-2756"
+        },
+        {
+          "name": "Jessica Rodriguez, RN",
+          "role": "Care Coordinator",
+          "phone": "(555) 284-7650"
+        },
+        {
+          "name": "Kevin Liu, PharmD",
+          "role": "Clinical Pharmacist",
+          "phone": "(555) 284-7611"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E005-01",
+          "date": "2023-12-15",
+          "category": "visit",
+          "title": "Hypertension Management Follow-up",
+          "description": "Initial comprehensive hypertension assessment with baseline BP readings and medication regimen review. Patient reported well on current therapy.",
+          "provider": "Dr. James Morrison",
+          "status": "completed"
+        },
+        {
+          "id": "E005-02",
+          "date": "2024-01-18",
+          "category": "lab",
+          "title": "Lipid Panel and Metabolic Screening",
+          "description": "Fasting labs ordered: Total cholesterol, LDL, HDL, triglycerides, glucose, creatinine, electrolytes. All results within acceptable ranges.",
+          "provider": "Quest Diagnostics",
+          "status": "completed"
+        },
+        {
+          "id": "E005-03",
+          "date": "2024-03-22",
+          "category": "visit",
+          "title": "Cardiology Consultation",
+          "description": "Referred to cardiology for hypertension optimization and coronary risk assessment. EKG performed, results normal. Medications confirmed appropriate.",
+          "provider": "Dr. Sarah Patel",
+          "status": "completed"
+        },
+        {
+          "id": "E005-04",
+          "date": "2024-05-10",
+          "category": "imaging",
+          "title": "Carotid Ultrasound Screening",
+          "description": "Non-invasive vascular imaging to assess for atherosclerotic disease. No significant stenosis detected.",
+          "provider": "Radiology Associates",
+          "status": "completed"
+        },
+        {
+          "id": "E005-05",
+          "date": "2024-07-16",
+          "category": "lab",
+          "title": "Hypertension and Metabolic Panel Follow-up",
+          "description": "Repeat labs: BP control stable, lipids improved on current atorvastatin dose, glucose well-managed on metformin.",
+          "provider": "Quest Diagnostics",
+          "status": "completed"
+        },
+        {
+          "id": "E005-06",
+          "date": "2024-09-27",
+          "category": "visit",
+          "title": "Primary Care Hypertension Check-in",
+          "description": "6-month follow-up visit. Blood pressure readings 128/82 and 130/84 mmHg. Patient adherent to medications and lifestyle modifications. Discussed diet, exercise, and salt reduction.",
+          "provider": "Dr. James Morrison",
+          "status": "completed"
+        },
+        {
+          "id": "E005-07",
+          "date": "2024-10-18",
+          "category": "education",
+          "title": "Hypertension and Heart Health Education Session",
+          "description": "Participated in group education session covering DASH diet, stress management, home BP monitoring techniques, and medication adherence strategies.",
+          "provider": "Jessica Rodriguez, RN",
+          "status": "completed"
+        },
+        {
+          "id": "E005-08",
+          "date": "2025-01-15",
+          "category": "visit",
+          "title": "Annual Hypertension Management Review",
+          "description": "Scheduled annual visit with primary care physician for comprehensive hypertension reassessment, medication review, and treatment optimization planning.",
+          "provider": "Dr. James Morrison",
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "P006",
+      "name": "Chelsea Nelson",
+      "age": 34,
+      "gender": "Female",
+      "email": "margaret.chen92@gmail.com",
+      "phone": "(555) 472-8916",
+      "primaryDiagnosis": "Asthma with seasonal exacerbations",
+      "conditions": [
+        "Asthma (moderate persistent)",
+        "Seasonal allergic rhinitis",
+        "Eczema"
+      ],
+      "allergies": [
+        "Penicillin (rash)",
+        "Dust mites",
+        "Pollen (birch, oak)"
+      ],
+      "medications": [
+        "Fluticasone/Salmeterol inhaler (250/50 mcg) - twice daily",
+        "Albuterol rescue inhaler - as needed",
+        "Cetirizine 10 mg daily",
+        "Dupilumab 300 mg subcutaneous injection every 2 weeks"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. James Mitchell",
+          "role": "Primary Care Physician",
+          "phone": "(555) 623-4891"
+        },
+        {
+          "name": "Dr. Priya Patel",
+          "role": "Pulmonologist",
+          "phone": "(555) 834-7265"
+        },
+        {
+          "name": "Nicole Rodriguez",
+          "role": "Asthma Care Coordinator",
+          "phone": "(555) 472-8934"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E006-01",
+          "date": "2023-10-12",
+          "category": "visit",
+          "title": "Annual physical and asthma assessment",
+          "description": "Baseline asthma evaluation. Patient reports well-controlled asthma on current regimen. FEV1 88% predicted.",
+          "provider": "Dr. James Mitchell",
+          "status": "completed"
+        },
+        {
+          "id": "E006-02",
+          "date": "2023-12-18",
+          "category": "visit",
+          "title": "Acute asthma exacerbation - ER visit",
+          "description": "Patient presented with acute dyspnea and wheezing during winter pollen season. Treated with nebulized albuterol and oral corticosteroids.",
+          "provider": "Memorial Hospital Emergency Department",
+          "status": "completed"
+        },
+        {
+          "id": "E006-03",
+          "date": "2024-01-09",
+          "category": "referral",
+          "title": "Referral to pulmonology",
+          "description": "Referred for pulmonary function testing and optimization of asthma therapy following ER visit.",
+          "provider": "Dr. James Mitchell",
+          "status": "completed"
+        },
+        {
+          "id": "E006-04",
+          "date": "2024-01-30",
+          "category": "visit",
+          "title": "Pulmonology consultation",
+          "description": "Initial consultation with pulmonologist. Recommended escalation to biologic therapy (Dupilumab) given ER exacerbation and seasonal pattern. Discussed environmental triggers and inhaler technique.",
+          "provider": "Dr. Priya Patel",
+          "status": "completed"
+        },
+        {
+          "id": "E006-05",
+          "date": "2024-02-14",
+          "category": "imaging",
+          "title": "Chest X-ray",
+          "description": "Baseline chest imaging ordered by pulmonologist. Results: No acute infiltrates. Normal heart size and mediastinum.",
+          "provider": "Radiology Center",
+          "status": "completed"
+        },
+        {
+          "id": "E006-06",
+          "date": "2024-03-08",
+          "category": "lab",
+          "title": "Pulmonary function testing",
+          "description": "Spirometry and bronchodilator response testing performed. FEV1 82% predicted, FVC 91% predicted. Mild obstructive pattern with 12% improvement post-bronchodilator.",
+          "provider": "Dr. Priya Patel's office",
+          "status": "completed"
+        },
+        {
+          "id": "E006-07",
+          "date": "2024-05-22",
+          "category": "visit",
+          "title": "Asthma care coordination follow-up",
+          "description": "3-month follow-up post-Dupilumab initiation. Patient reports improved symptom control and reduced rescue inhaler use. Discussed action plan and environmental controls.",
+          "provider": "Nicole Rodriguez",
+          "status": "completed"
+        },
+        {
+          "id": "E006-08",
+          "date": "2024-12-09",
+          "category": "visit",
+          "title": "Pulmonology follow-up and assessment",
+          "description": "Scheduled follow-up to assess response to Dupilumab therapy and seasonal symptom pattern. Repeat spirometry planned.",
+          "provider": "Dr. Priya Patel",
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "P007",
+      "name": "Kimberly Johnson",
+      "age": 58,
+      "gender": "Female",
+      "email": "margaret.chen@gmail.com",
+      "phone": "(555) 847-2391",
+      "primaryDiagnosis": "Hypothyroidism",
+      "conditions": [
+        "Hypothyroidism",
+        "Type 2 Diabetes Mellitus",
+        "Hypertension"
+      ],
+      "allergies": [
+        "Penicillin",
+        "Shellfish"
+      ],
+      "medications": [
+        "Levothyroxine 75 mcg daily",
+        "Metformin 1000 mg twice daily",
+        "Lisinopril 10 mg daily",
+        "Atorvastatin 20 mg daily"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Sarah Mitchell",
+          "role": "Primary Care Physician",
+          "phone": "(555) 423-1087"
+        },
+        {
+          "name": "Dr. James Patel",
+          "role": "Endocrinologist",
+          "phone": "(555) 612-5439"
+        },
+        {
+          "name": "Lisa Rodriguez",
+          "role": "Nurse Care Coordinator",
+          "phone": "(555) 734-8261"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E007-01",
+          "date": "2023-12-15",
+          "category": "visit",
+          "title": "Initial Hypothyroidism Diagnosis",
+          "description": "Patient presented with fatigue, weight gain, and cold intolerance. TSH elevated at 8.2 mIU/L. Levothyroxine initiated at 50 mcg daily.",
+          "provider": "Dr. Sarah Mitchell",
+          "status": "completed"
+        },
+        {
+          "id": "E007-02",
+          "date": "2024-01-12",
+          "category": "lab",
+          "title": "TSH and Free T4 Level Check",
+          "description": "Follow-up labs 4 weeks after starting levothyroxine. TSH: 6.1 mIU/L, Free T4: 0.8 ng/dL. Dose increased to 75 mcg daily.",
+          "provider": "Dr. Sarah Mitchell",
+          "status": "completed"
+        },
+        {
+          "id": "E007-03",
+          "date": "2024-03-01",
+          "category": "visit",
+          "title": "Follow-up Visit - Dose Titration",
+          "description": "Patient reports improved energy and reduced fatigue. Discussed medication timing and avoidance of calcium/iron supplements within 4 hours of levothyroxine. TSH trending down. Plan to recheck labs in 6 weeks.",
+          "provider": "Dr. James Patel",
+          "status": "completed"
+        },
+        {
+          "id": "E007-04",
+          "date": "2024-04-19",
+          "category": "lab",
+          "title": "TSH and Free T4 Level Check",
+          "description": "TSH: 2.8 mIU/L, Free T4: 1.1 ng/dL. Levels now within target range. Levothyroxine dose maintained at 75 mcg daily.",
+          "provider": "Dr. James Patel",
+          "status": "completed"
+        },
+        {
+          "id": "E007-05",
+          "date": "2024-09-13",
+          "category": "visit",
+          "title": "Routine Thyroid Management Visit",
+          "description": "Patient stable on current levothyroxine dose. Reported good symptom control. Discussed annual monitoring plan and importance of medication compliance.",
+          "provider": "Dr. Sarah Mitchell",
+          "status": "completed"
+        },
+        {
+          "id": "E007-06",
+          "date": "2024-10-25",
+          "category": "lab",
+          "title": "Annual TSH and Free T4 Panel",
+          "description": "Annual monitoring labs for hypothyroidism management. TSH: 2.5 mIU/L, Free T4: 1.15 ng/dL. Levels stable and well-controlled.",
+          "provider": "Dr. Sarah Mitchell",
+          "status": "completed"
+        },
+        {
+          "id": "E007-07",
+          "date": "2025-01-10",
+          "category": "visit",
+          "title": "Scheduled Follow-up Visit",
+          "description": "Quarterly follow-up with endocrinologist to monitor TSH levels and assess for any medication adjustments needed.",
+          "provider": "Dr. James Patel",
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "P008",
+      "name": "Rachel Martinez",
+      "age": 34,
+      "gender": "Female",
+      "email": "rachel.martinez92@gmail.com",
+      "phone": "(555) 428-7194",
+      "primaryDiagnosis": "Major Depressive Disorder, Moderate, In Treatment",
+      "conditions": [
+        "Major Depressive Disorder",
+        "Anxiety Disorder",
+        "Insomnia"
+      ],
+      "allergies": [
+        "Penicillin",
+        "Sulfonamides"
+      ],
+      "medications": [
+        "Sertraline 150 mg daily",
+        "Bupropion XL 300 mg daily",
+        "Trazodone 75 mg at bedtime",
+        "Vitamin D 2000 IU daily"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. James Chen",
+          "role": "Psychiatrist",
+          "phone": "(555) 612-4521"
+        },
+        {
+          "name": "Dr. Sarah Williamson",
+          "role": "Primary Care Physician",
+          "phone": "(555) 389-2847"
+        },
+        {
+          "name": "Dr. Lisa Rodriguez",
+          "role": "Licensed Clinical Psychotherapist",
+          "phone": "(555) 501-8356"
+        },
+        {
+          "name": "Marcus Thompson",
+          "role": "Care Coordinator",
+          "phone": "(555) 723-6149"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E008-01",
+          "date": "2024-01-15",
+          "category": "visit",
+          "title": "Initial Psychiatric Evaluation",
+          "description": "Patient presented with depressed mood, anhedonia, fatigue, and poor sleep for 3 months. Formal assessment confirmed Major Depressive Disorder diagnosis.",
+          "provider": "Dr. James Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E008-02",
+          "date": "2024-02-05",
+          "category": "visit",
+          "title": "Psychiatry Follow-up Visit",
+          "description": "Sertraline 100 mg daily initiated. Patient advised on medication timeline and side effects.",
+          "provider": "Dr. James Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E008-03",
+          "date": "2024-02-20",
+          "category": "referral",
+          "title": "Referral to Psychotherapy",
+          "description": "Patient referred to Dr. Lisa Rodriguez for cognitive behavioral therapy to complement pharmacological treatment.",
+          "provider": "Dr. James Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E008-04",
+          "date": "2024-03-12",
+          "category": "visit",
+          "title": "First Therapy Session",
+          "description": "Initial session with therapist focusing on cognitive patterns and behavioral activation strategies.",
+          "provider": "Dr. Lisa Rodriguez",
+          "status": "completed"
+        },
+        {
+          "id": "E008-05",
+          "date": "2024-04-08",
+          "category": "visit",
+          "title": "Psychiatry Med Review",
+          "description": "Patient reported partial improvement with Sertraline. Bupropion 150 mg daily added to address residual fatigue and motivation.",
+          "provider": "Dr. James Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E008-06",
+          "date": "2024-05-20",
+          "category": "lab",
+          "title": "Lab Work: Metabolic Panel and Thyroid Function",
+          "description": "Routine labs ordered to monitor for medication side effects and rule out medical contributors to depressive symptoms.",
+          "provider": "Dr. Sarah Williamson",
+          "status": "completed"
+        },
+        {
+          "id": "E008-07",
+          "date": "2024-06-17",
+          "category": "visit",
+          "title": "Psychiatry Follow-up and Med Optimization",
+          "description": "Patient showing significant improvement. Sertraline increased to 150 mg and Bupropion increased to 300 mg XL for sustained effect.",
+          "provider": "Dr. James Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E008-08",
+          "date": "2024-07-10",
+          "category": "visit",
+          "title": "Ongoing Therapy Session",
+          "description": "Continued CBT sessions focusing on relapse prevention and developing coping strategies.",
+          "provider": "Dr. Lisa Rodriguez",
+          "status": "completed"
+        },
+        {
+          "id": "E008-09",
+          "date": "2024-09-09",
+          "category": "visit",
+          "title": "Three-Month Psychiatry Check-in",
+          "description": "Patient reports sustained improvement in mood, energy, and sleep quality. Current medication regimen well-tolerated.",
+          "provider": "Dr. James Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E008-10",
+          "date": "2024-10-15",
+          "category": "visit",
+          "title": "Ongoing Psychotherapy",
+          "description": "Weekly therapy sessions continuing to consolidate gains and address emerging life stressors.",
+          "provider": "Dr. Lisa Rodriguez",
+          "status": "in-progress"
+        },
+        {
+          "id": "E008-11",
+          "date": "2024-11-12",
+          "category": "visit",
+          "title": "Maintenance Psychiatry Visit",
+          "description": "Routine follow-up visit to monitor medication effectiveness and discuss long-term treatment planning.",
+          "provider": "Dr. James Chen",
+          "status": "upcoming"
+        },
+        {
+          "id": "E008-12",
+          "date": "2024-12-09",
+          "category": "lab",
+          "title": "Lab Work: Annual Metabolic Panel",
+          "description": "Annual labs to assess overall health and continue monitoring for any medication-related changes.",
+          "provider": "Dr. Sarah Williamson",
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "P009",
+      "name": "Julie Harvey",
+      "age": 54,
+      "gender": "Female",
+      "email": "margaret.chen@gmail.com",
+      "phone": "(555) 342-8761",
+      "primaryDiagnosis": "Rheumatoid Arthritis (RA) on biologic therapy",
+      "conditions": [
+        "Rheumatoid Arthritis",
+        "Hypertension",
+        "Type 2 Diabetes Mellitus"
+      ],
+      "allergies": [
+        "Penicillin",
+        "Sulfonamides"
+      ],
+      "medications": [
+        "Adalimumab (Humira) 40mg SC every 2 weeks",
+        "Methotrexate 15mg weekly",
+        "Folic acid 1mg daily",
+        "Lisinopril 10mg daily",
+        "Metformin 1000mg twice daily",
+        "Omeprazole 20mg daily"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Sarah Martinez",
+          "role": "Rheumatologist",
+          "phone": "(555) 281-4567"
+        },
+        {
+          "name": "Jennifer Thompson, RN",
+          "role": "Infusion Nurse",
+          "phone": "(555) 281-4598"
+        },
+        {
+          "name": "Dr. James Liu",
+          "role": "Primary Care Physician",
+          "phone": "(555) 445-2891"
+        },
+        {
+          "name": "Rachel Green, MS, RD",
+          "role": "Nutritionist",
+          "phone": "(555) 623-4152"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E009-01",
+          "date": "2024-02-14",
+          "category": "visit",
+          "title": "Rheumatology Initial Assessment",
+          "description": "Initial comprehensive rheumatology evaluation; started on biologic therapy (Adalimumab) with concurrent methotrexate",
+          "provider": "Dr. Sarah Martinez",
+          "status": "completed"
+        },
+        {
+          "id": "E009-02",
+          "date": "2024-02-22",
+          "category": "lab",
+          "title": "Baseline Labs - RA Panel",
+          "description": "ESR, CRP, RF, anti-CCP, CBC, comprehensive metabolic panel, liver function tests before biologic initiation",
+          "provider": "Quest Diagnostics",
+          "status": "completed"
+        },
+        {
+          "id": "E009-03",
+          "date": "2024-03-10",
+          "category": "procedure",
+          "title": "First Adalimumab Infusion",
+          "description": "Patient education and self-injection training for adalimumab; first dose administered in clinic",
+          "provider": "Jennifer Thompson, RN",
+          "status": "completed"
+        },
+        {
+          "id": "E009-04",
+          "date": "2024-04-12",
+          "category": "lab",
+          "title": "Methotrexate Monitoring Labs",
+          "description": "CBC, liver function tests, and renal function to monitor methotrexate tolerance",
+          "provider": "Quest Diagnostics",
+          "status": "completed"
+        },
+        {
+          "id": "E009-05",
+          "date": "2024-05-15",
+          "category": "imaging",
+          "title": "Hand & Wrist X-rays",
+          "description": "Baseline radiographs of hands and wrists to assess joint damage and inflammation; bilateral views",
+          "provider": "Medical Imaging Associates",
+          "status": "completed"
+        },
+        {
+          "id": "E009-06",
+          "date": "2024-07-24",
+          "category": "visit",
+          "title": "Rheumatology Follow-up - Response Assessment",
+          "description": "Assessment of clinical response to adalimumab and methotrexate; joint examination; medication tolerability review",
+          "provider": "Dr. Sarah Martinez",
+          "status": "completed"
+        },
+        {
+          "id": "E009-07",
+          "date": "2024-09-10",
+          "category": "lab",
+          "title": "Quarterly RA Monitoring Labs",
+          "description": "ESR, CRP, CBC, comprehensive metabolic panel, and liver function tests; assessment of disease activity markers",
+          "provider": "Quest Diagnostics",
+          "status": "completed"
+        },
+        {
+          "id": "E009-08",
+          "date": "2024-11-05",
+          "category": "visit",
+          "title": "Rheumatology Follow-up - Low Disease Activity Assessment",
+          "description": "Patient achieving low disease activity state; discussed long-term management strategy; reviewed adalimumab continuation",
+          "provider": "Dr. Sarah Martinez",
+          "status": "completed"
+        },
+        {
+          "id": "E009-09",
+          "date": "2025-01-15",
+          "category": "lab",
+          "title": "RA Monitoring Labs - Quarterly",
+          "description": "ESR, CRP, CBC, liver function tests, and renal function; ongoing surveillance on biologic therapy",
+          "provider": "Quest Diagnostics",
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "P010",
+      "name": "James Mitchell",
+      "age": 68,
+      "gender": "Male",
+      "email": "jmitchell.1956@gmail.com",
+      "phone": "(555) 287-4392",
+      "primaryDiagnosis": "Chronic Obstructive Pulmonary Disease (COPD) with home oxygen dependency",
+      "conditions": [
+        "COPD - Gold Stage III (Severe)",
+        "Chronic hypoxemia requiring supplemental oxygen",
+        "Pulmonary hypertension",
+        "Cor pulmonale (right heart strain)",
+        "Type 2 Diabetes Mellitus",
+        "Hypertension"
+      ],
+      "allergies": [
+        "Penicillin (rash)",
+        "NSAIDs (worsening respiratory symptoms)"
+      ],
+      "medications": [
+        "Tiotropium/Olodaterol (Stiolto) 2.5/2.5 mcg inhalation powder daily",
+        "Albuterol/Ipratropium (Combivent) nebulized solution 4 times daily",
+        "Omeprazole 20 mg daily",
+        "Metformin 1000 mg twice daily",
+        "Lisinopril 20 mg daily",
+        "Amlodipine 5 mg daily",
+        "Home oxygen therapy 2-3 L/min continuous, 4-5 L/min with exertion"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Marcus Chen",
+          "role": "Pulmonologist",
+          "phone": "(555) 423-8156"
+        },
+        {
+          "name": "Dr. Sarah Kowalski",
+          "role": "Primary Care Physician",
+          "phone": "(555) 218-7634"
+        },
+        {
+          "name": "Patricia Rogers",
+          "role": "Respiratory Therapist",
+          "phone": "(555) 692-3421"
+        },
+        {
+          "name": "Jennifer Park",
+          "role": "Registered Nurse Care Coordinator",
+          "phone": "(555) 156-9887"
+        },
+        {
+          "name": "Thomas Bradley",
+          "role": "Cardiology Consultant",
+          "phone": "(555) 834-5276"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E010-01",
+          "date": "2024-03-15",
+          "category": "visit",
+          "title": "Pulmonology Clinic Visit",
+          "description": "Initial comprehensive pulmonary assessment. Baseline spirometry performed showing FEV1 28% predicted. Home oxygen needs confirmed at 2-3 L/min continuous.",
+          "provider": "Dr. Marcus Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E010-02",
+          "date": "2024-04-08",
+          "category": "imaging",
+          "title": "High-Resolution Chest CT",
+          "description": "HRCT chest with and without contrast to assess emphysema distribution and rule out other pulmonary pathology. Findings consistent with advanced centrilobular emphysema.",
+          "provider": "Radiology Department - Dr. Amanda Foster",
+          "status": "completed"
+        },
+        {
+          "id": "E010-03",
+          "date": "2024-05-22",
+          "category": "procedure",
+          "title": "Echocardiography",
+          "description": "Transthoracic echocardiogram to assess cardiac function and pulmonary pressures. Findings: mild-to-moderate pulmonary hypertension, RVSP estimated at 52 mmHg.",
+          "provider": "Cardiology - Dr. Thomas Bradley",
+          "status": "completed"
+        },
+        {
+          "id": "E010-04",
+          "date": "2024-06-10",
+          "category": "education",
+          "title": "Pulmonary Rehabilitation & Self-Management Education",
+          "description": "Enrollment in 8-week outpatient pulmonary rehabilitation program. Topics: oxygen management, inhalation technique, energy conservation, nutrition, and activity planning.",
+          "provider": "Patricia Rogers, Respiratory Therapist",
+          "status": "completed"
+        },
+        {
+          "id": "E010-05",
+          "date": "2024-08-05",
+          "category": "visit",
+          "title": "Acute COPD Exacerbation - Hospitalization",
+          "description": "Emergency department admission for acute exacerbation triggered by upper respiratory infection. Treated with IV corticosteroids, broad-spectrum antibiotics, and nebulized bronchodilators. Hospital stay 4 days. Discharged on prednisone taper and azithromycin.",
+          "provider": "Dr. Marcus Chen / Hospital Medicine Team",
+          "status": "completed",
+          "details": "Admitted 2024-08-05, discharged 2024-08-09"
+        },
+        {
+          "id": "E010-06",
+          "date": "2024-09-18",
+          "category": "visit",
+          "title": "Post-Hospitalization Follow-up",
+          "description": "Comprehensive follow-up visit 6 weeks post-hospitalization. Assessed recovery, medication compliance, home oxygen usage, and respiratory status. Discussed exacerbation triggers and prevention strategies.",
+          "provider": "Dr. Marcus Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E010-07",
+          "date": "2024-11-20",
+          "category": "lab",
+          "title": "Spirometry and Arterial Blood Gas",
+          "description": "Quarterly pulmonary function testing and ABG to assess baseline status and oxygenation. Pending follow-up with pulmonology.",
+          "provider": "Pulmonology Lab - Patricia Rogers",
+          "status": "completed"
+        },
+        {
+          "id": "E010-08",
+          "date": "2024-12-10",
+          "category": "visit",
+          "title": "Routine Pulmonology Follow-up",
+          "description": "Quarterly clinic visit with Dr. Chen to review spirometry results, adjust oxygen prescription if needed, and optimize medication regimen.",
+          "provider": "Dr. Marcus Chen",
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "P011",
+      "name": "Robert J. Martinez",
+      "age": 68,
+      "gender": "Male",
+      "email": "robert.martinez72@gmail.com",
+      "phone": "(555) 247-8934",
+      "primaryDiagnosis": "Chronic Kidney Disease Stage 3b (eGFR 32-44)",
+      "conditions": [
+        "Type 2 Diabetes Mellitus",
+        "Hypertension",
+        "Coronary Artery Disease",
+        "Chronic Kidney Disease Stage 3b",
+        "Hyperlipidemia",
+        "Anemia of Chronic Disease",
+        "History of Myocardial Infarction (2019)"
+      ],
+      "allergies": [
+        "Lisinopril (ACE inhibitor rash)",
+        "Penicillin (anaphylaxis)"
+      ],
+      "medications": [
+        "Losartan 100 mg daily",
+        "Metoprolol 50 mg twice daily",
+        "Atorvastatin 80 mg daily",
+        "Metformin 1000 mg twice daily",
+        "Aspirin 81 mg daily",
+        "Amlodipine 5 mg daily",
+        "Ferrous sulfate 325 mg daily",
+        "Sodium bicarbonate 650 mg twice daily"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Sarah Chen, MD",
+          "role": "Nephrologist (Primary)",
+          "phone": "(555) 412-7621"
+        },
+        {
+          "name": "Dr. Michael Rodriguez, MD",
+          "role": "Cardiologist",
+          "phone": "(555) 389-2156"
+        },
+        {
+          "name": "Dr. Patricia Walsh, MD",
+          "role": "Primary Care Physician",
+          "phone": "(555) 521-4890"
+        },
+        {
+          "name": "Jennifer Okafor, RN, BSN",
+          "role": "Care Coordinator",
+          "phone": "(555) 634-5127"
+        },
+        {
+          "name": "Marcus Thompson, LMSW",
+          "role": "Social Worker",
+          "phone": "(555) 718-3942"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E011-01",
+          "date": "2023-05-12",
+          "category": "visit",
+          "title": "Initial Nephrology Consultation",
+          "description": "Established care with nephrology for CKD management. Baseline eGFR 38 mL/min/1.73m². Discussed progression risk and medication optimization.",
+          "provider": "Dr. Sarah Chen, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E011-02",
+          "date": "2023-06-08",
+          "category": "lab",
+          "title": "Comprehensive Metabolic Panel & Lipid Panel",
+          "description": "Baseline labs: Creatinine 1.9, eGFR 38, K+ 5.1, Phosphorus 3.8, Hemoglobin 10.2 g/dL",
+          "provider": "Quest Diagnostics",
+          "status": "completed"
+        },
+        {
+          "id": "E011-03",
+          "date": "2023-07-20",
+          "category": "imaging",
+          "title": "Renal Ultrasound",
+          "description": "Bilateral kidneys normal size without hydronephrosis or masses. Increased echogenicity consistent with CKD.",
+          "provider": "Radiology Associates",
+          "status": "completed"
+        },
+        {
+          "id": "E011-04",
+          "date": "2023-08-15",
+          "category": "visit",
+          "title": "Cardiology Evaluation",
+          "description": "Risk stratification for CKD patient with prior MI. EKG normal. Continued current cardioprotective regimen.",
+          "provider": "Dr. Michael Rodriguez, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E011-05",
+          "date": "2023-09-10",
+          "category": "referral",
+          "title": "Nutritionist Referral for Renal Diet",
+          "description": "Referred to registered dietitian for phosphorus/potassium/sodium restriction education. CKD Stage 3b dietary management.",
+          "provider": "Dr. Sarah Chen, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E011-06",
+          "date": "2023-10-05",
+          "category": "education",
+          "title": "CKD Disease Management Class",
+          "description": "Attended 2-hour education session on CKD progression, medication adherence, dietary modifications, and symptom recognition.",
+          "provider": "Jennifer Okafor, RN, BSN",
+          "status": "completed"
+        },
+        {
+          "id": "E011-07",
+          "date": "2023-11-22",
+          "category": "lab",
+          "title": "Quarterly Nephrology Labs",
+          "description": "Creatinine 2.0, eGFR 37, K+ 5.3, Phosphorus 4.1. Mild decline noted. Medication adjustment planned.",
+          "provider": "Quest Diagnostics",
+          "status": "completed"
+        },
+        {
+          "id": "E011-08",
+          "date": "2024-01-18",
+          "category": "visit",
+          "title": "Nephrology Follow-up Visit",
+          "description": "Reviewed declining renal function. Adjusted sodium bicarbonate dose. Discussed SGLT2 inhibitor trial eligibility pending cardiology clearance.",
+          "provider": "Dr. Sarah Chen, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E011-09",
+          "date": "2024-02-14",
+          "category": "lab",
+          "title": "Quarterly Labs & Urinalysis",
+          "description": "eGFR 36, creatinine 2.05, albumin-to-creatinine ratio 420 mg/g. Persistent albuminuria.",
+          "provider": "LabCorp",
+          "status": "completed"
+        },
+        {
+          "id": "E011-10",
+          "date": "2024-03-20",
+          "category": "imaging",
+          "title": "Chest X-ray",
+          "description": "Ordered for baseline assessment given CKD/CAD overlap. No acute cardiopulmonary process.",
+          "provider": "Regional Medical Imaging",
+          "status": "completed"
+        },
+        {
+          "id": "E011-11",
+          "date": "2024-05-08",
+          "category": "visit",
+          "title": "Cardiology Reassessment",
+          "description": "Annual reassessment. Clearance given for SGLT2 inhibitor initiation. BP goal <130/80 achieved.",
+          "provider": "Dr. Michael Rodriguez, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E011-12",
+          "date": "2024-07-12",
+          "category": "lab",
+          "title": "Mid-year Nephrology Panel",
+          "description": "eGFR 34, creatinine 2.2, phosphorus 4.4, K+ 5.4. Trending toward Stage 4. SGLT2i started.",
+          "provider": "Quest Diagnostics",
+          "status": "completed"
+        },
+        {
+          "id": "E011-13",
+          "date": "2024-09-15",
+          "category": "visit",
+          "title": "Nephrology Follow-up Post SGLT2i Initiation",
+          "description": "Tolerating empagliflozin 10 mg well. No adverse effects. Recheck labs in 2 months.",
+          "provider": "Dr. Sarah Chen, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E011-14",
+          "date": "2024-10-30",
+          "category": "lab",
+          "title": "Quarterly Labs - Overdue",
+          "description": "Patient delayed scheduling. Labs now 3 weeks overdue. Critical for CKD trajectory assessment.",
+          "provider": "LabCorp",
+          "status": "overdue",
+          "details": "Patient reported busy schedule; care coordinator following up to schedule ASAP to avoid treatment gap"
+        },
+        {
+          "id": "E011-15",
+          "date": "2024-11-20",
+          "category": "visit",
+          "title": "Primary Care Annual Physical",
+          "description": "Comprehensive assessment with PCP. Review medication compliance, diabetes control, BP trends. Scheduled labs pending.",
+          "provider": "Dr. Patricia Walsh, MD",
+          "status": "upcoming"
+        },
+        {
+          "id": "E011-16",
+          "date": "2024-12-10",
+          "category": "visit",
+          "title": "Nephrology Q3 Month Follow-up",
+          "description": "Assessment of SGLT2i response, kidney function trend, anemia management, and progression to Stage 4 risk. Anticipate possible GLP-1 agonist consideration.",
+          "provider": "Dr. Sarah Chen, MD",
+          "status": "upcoming"
+        },
+        {
+          "id": "E011-17",
+          "date": "2024-12-18",
+          "category": "referral",
+          "title": "Social Work Consultation - Upcoming",
+          "description": "Referral for advanced care planning discussion, disability evaluation, and financial resources for ongoing care.",
+          "provider": "Marcus Thompson, LMSW",
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "P012",
+      "name": "Jacob Parsons",
+      "age": 68,
+      "gender": "Male",
+      "email": "j.mitchell1956@gmail.com",
+      "phone": "(555) 287-4921",
+      "primaryDiagnosis": "Heart Failure with Reduced Ejection Fraction (HFrEF), NYHA Class III",
+      "conditions": [
+        "Systolic heart failure (EF 28%)",
+        "Hypertension",
+        "Type 2 Diabetes Mellitus",
+        "Chronic Kidney Disease Stage 3b",
+        "Atrial fibrillation (paroxysmal)",
+        "Hyperlipidemia",
+        "Coronary artery disease s/p prior MI (2019)"
+      ],
+      "allergies": [
+        "Lisinopril (ACE inhibitor-induced cough)",
+        "Penicillin (rash)"
+      ],
+      "medications": [
+        "Carvedilol 25 mg twice daily",
+        "Sacubitril/Valsartan 97/103 mg twice daily",
+        "Furosemide 80 mg daily",
+        "Spironolactone 25 mg daily",
+        "Empagliflozin 10 mg daily",
+        "Apixaban 5 mg twice daily",
+        "Atorvastatin 40 mg daily",
+        "Amlodipine 5 mg daily",
+        "Digoxin 0.25 mg daily",
+        "Metformin 1000 mg twice daily"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Marcus Chen",
+          "role": "Cardiologist (Primary HF Specialist)",
+          "phone": "(555) 412-8856"
+        },
+        {
+          "name": "Dr. Patricia Rodriguez",
+          "role": "Internal Medicine/Primary Care Physician",
+          "phone": "(555) 543-7712"
+        },
+        {
+          "name": "Sarah Kowalski",
+          "role": "Heart Failure Nurse Coordinator",
+          "phone": "(555) 381-2649"
+        },
+        {
+          "name": "Dr. Rajesh Patel",
+          "role": "Interventional Cardiologist",
+          "phone": "(555) 619-5433"
+        },
+        {
+          "name": "Michelle Torres",
+          "role": "Registered Dietitian (Cardiac/Renal)",
+          "phone": "(555) 256-3891"
+        },
+        {
+          "name": "David Kim",
+          "role": "Cardiac Rehabilitation Specialist",
+          "phone": "(555) 471-6254"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E012-01",
+          "date": "2023-04-15",
+          "category": "visit",
+          "title": "Cardiology Initial Consultation",
+          "description": "First evaluation for worsening dyspnea and fatigue; echocardiogram ordered",
+          "provider": "Dr. Marcus Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E012-02",
+          "date": "2023-05-02",
+          "category": "imaging",
+          "title": "Transthoracic Echocardiogram",
+          "description": "EF 28%, severe LV dilatation, moderate MR, EDD 62 mm",
+          "provider": "Cardiology Imaging",
+          "status": "completed"
+        },
+        {
+          "id": "E012-03",
+          "date": "2023-06-10",
+          "category": "hospitalization",
+          "title": "Hospital Admission - Acute Decompensated Heart Failure",
+          "description": "3-day admission for acute HF exacerbation; IV diuretics and inotropic support initiated; discharged on optimized regimen",
+          "provider": "Dr. Patricia Rodriguez & Dr. Marcus Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E012-04",
+          "date": "2023-07-20",
+          "category": "visit",
+          "title": "Cardiology Follow-up Post-Discharge",
+          "description": "Volume status reassessed, medication compliance reviewed; ICD evaluation recommended",
+          "provider": "Dr. Marcus Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E012-05",
+          "date": "2023-08-30",
+          "category": "imaging",
+          "title": "Cardiac MRI for ICD Candidacy",
+          "description": "Confirmed EF 28%, extensive LV scarring in anterior wall consistent with prior MI",
+          "provider": "Cardiology Imaging",
+          "status": "completed"
+        },
+        {
+          "id": "E012-06",
+          "date": "2023-09-15",
+          "category": "procedure",
+          "title": "Implantable Cardioverter-Defibrillator (ICD) Implantation",
+          "description": "Single-chamber ICD placed for primary prevention; post-operative course uncomplicated",
+          "provider": "Dr. Rajesh Patel",
+          "status": "completed"
+        },
+        {
+          "id": "E012-07",
+          "date": "2023-10-05",
+          "category": "visit",
+          "title": "ICD Follow-up and Device Check",
+          "description": "ICD interrogation normal; no arrhythmias detected; incision healing well",
+          "provider": "Dr. Marcus Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E012-08",
+          "date": "2023-11-12",
+          "category": "education",
+          "title": "Cardiac Rehabilitation Program Enrollment",
+          "description": "12-week supervised exercise and education program initiated post-ICD placement",
+          "provider": "David Kim",
+          "status": "completed"
+        },
+        {
+          "id": "E012-09",
+          "date": "2024-01-08",
+          "category": "hospitalization",
+          "title": "Hospital Admission - Recurrent HF Decompensation",
+          "description": "4-day admission for volume overload; IV furosemide escalated; Digoxin started; reviewed medication adherence issues",
+          "provider": "Dr. Patricia Rodriguez & Dr. Marcus Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E012-10",
+          "date": "2024-02-20",
+          "category": "visit",
+          "title": "Nephrology Consultation for CKD",
+          "description": "Creatinine 1.9, eGFR 32; discussed SGLT2i continuation and renal function monitoring",
+          "provider": "Dr. Elena Vasquez, Nephrologist",
+          "status": "completed"
+        },
+        {
+          "id": "E012-11",
+          "date": "2024-06-18",
+          "category": "lab",
+          "title": "Routine Labs and BNP",
+          "description": "Overdue labs ordered; BNP 850 (elevated), K+ 5.1 (high normal), Cr 2.0 (slight increase)",
+          "provider": "Dr. Patricia Rodriguez",
+          "status": "overdue",
+          "details": "Patient reports difficulty getting to lab; labs needed for 3 weeks"
+        },
+        {
+          "id": "E012-12",
+          "date": "2024-11-15",
+          "category": "visit",
+          "title": "Cardiology Follow-up Exam",
+          "description": "Upcoming routine HF check; medication review, volume status assessment, ICD check planned",
+          "provider": "Dr. Marcus Chen",
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "P013",
+      "name": "Margaret Susan Chen",
+      "age": 58,
+      "gender": "Female",
+      "email": "m.s.chen.1966@gmail.com",
+      "phone": "(555) 482-3614",
+      "primaryDiagnosis": "Metastatic Breast Cancer (Stage IV)",
+      "conditions": [
+        "Metastatic adenocarcinoma of breast to lungs and liver",
+        "Chemotherapy-induced neuropathy",
+        "Chemotherapy-related cognitive impairment",
+        "Hypertension",
+        "Hyperlipidemia",
+        "Anxiety"
+      ],
+      "allergies": [
+        "Penicillin (rash)",
+        "Contrast dye (mild reaction)"
+      ],
+      "medications": [
+        "Paclitaxel 175 mg/m² IV every 3 weeks",
+        "Trastuzumab (Herceptin) 6 mg/kg IV every 3 weeks",
+        "Carboplatin AUC 5 IV every 3 weeks",
+        "Fulvestrant 500 mg IM monthly",
+        "Palliative oxycodone 5-10 mg PO Q4-6 hours as needed",
+        "Metoprolol 50 mg PO daily",
+        "Atorvastatin 20 mg PO daily",
+        "Sertraline 50 mg PO daily",
+        "Ondansetron 8 mg PO Q8 hours as needed",
+        "Loratadine 10 mg PO daily"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Rebecca Valdez, MD",
+          "role": "Medical Oncologist",
+          "phone": "(555) 671-4823"
+        },
+        {
+          "name": "Dr. James Mitchell, MD",
+          "role": "Surgical Oncologist",
+          "phone": "(555) 438-2091"
+        },
+        {
+          "name": "Dr. Linda Kowalski, MD",
+          "role": "Interventional Radiologist",
+          "phone": "(555) 556-7340"
+        },
+        {
+          "name": "Dr. Thomas Reeves, MD",
+          "role": "Palliative Care Specialist",
+          "phone": "(555) 719-8245"
+        },
+        {
+          "name": "Sarah Martinez, RN, OCN",
+          "role": "Oncology Care Coordinator",
+          "phone": "(555) 842-5731"
+        },
+        {
+          "name": "Dr. Michelle Wu, PhD",
+          "role": "Clinical Psychologist",
+          "phone": "(555) 693-2148"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E013-01",
+          "date": "2023-11-14",
+          "category": "visit",
+          "title": "Oncology Consultation - Diagnosis & Treatment Planning",
+          "description": "Initial presentation with biopsy-confirmed metastatic breast cancer. Imaging revealed pulmonary and hepatic metastases. Multidisciplinary tumor board review completed. Palliative chemotherapy regimen initiated.",
+          "provider": "Dr. Rebecca Valdez, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E013-02",
+          "date": "2023-11-21",
+          "category": "procedure",
+          "title": "Port-a-Cath Placement",
+          "description": "Successful placement of central venous access device for chemotherapy infusion.",
+          "provider": "Dr. James Mitchell, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E013-03",
+          "date": "2023-11-28",
+          "category": "lab",
+          "title": "Baseline Laboratory Panel & Tumor Markers",
+          "description": "Complete metabolic panel, CBC, HER2 receptor status (positive), CEA and CA 15-3 tumor markers drawn. Results obtained to establish baseline for chemotherapy monitoring.",
+          "provider": "Quest Diagnostics, supervised by Dr. Valdez",
+          "status": "completed"
+        },
+        {
+          "id": "E013-04",
+          "date": "2023-12-05",
+          "category": "imaging",
+          "title": "Baseline CT Chest/Abdomen/Pelvis with IV Contrast",
+          "description": "Cross-sectional imaging demonstrating bilateral pulmonary nodules (largest 2.8 cm right lower lobe) and two hepatic lesions consistent with metastatic disease. RECIST baseline established.",
+          "provider": "Dr. Linda Kowalski, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E013-05",
+          "date": "2023-12-12",
+          "category": "procedure",
+          "title": "Cycle 1 Chemotherapy Infusion (Paclitaxel/Carboplatin/Herceptin)",
+          "description": "First cycle of combination chemotherapy administered. Pre-medications given. Tolerating infusions without acute adverse events.",
+          "provider": "Infusion Center, Sarah Martinez RN, OCN",
+          "status": "completed"
+        },
+        {
+          "id": "E013-06",
+          "date": "2024-01-02",
+          "category": "visit",
+          "title": "Oncology Follow-up & Adverse Event Assessment",
+          "description": "Day 21 post-cycle 1. Mild nausea controlled with antiemetics. Grade 1 fatigue reported. CBC shows adequate counts. Cycle 2 approved to proceed.",
+          "provider": "Dr. Rebecca Valdez, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E013-07",
+          "date": "2024-01-09",
+          "category": "procedure",
+          "title": "Cycle 2 Chemotherapy Infusion",
+          "description": "Second cycle of paclitaxel/carboplatin/herceptin completed. Patient reports improved nausea management. Developing mild peripheral neuropathy in feet.",
+          "provider": "Infusion Center, Sarah Martinez RN, OCN",
+          "status": "completed"
+        },
+        {
+          "id": "E013-08",
+          "date": "2024-02-06",
+          "category": "lab",
+          "title": "Monitoring Laboratory Panel - Post Cycle 3",
+          "description": "CBC, CMP, HER2 status confirmation. WBC 3.2 (low-normal), Hemoglobin 10.1 (mild anemia), Platelets 145 (acceptable). Albumin 3.4 (slightly low, nutritional support recommended).",
+          "provider": "Quest Diagnostics",
+          "status": "completed"
+        },
+        {
+          "id": "E013-09",
+          "date": "2024-03-05",
+          "category": "imaging",
+          "title": "Response Assessment CT Chest/Abdomen/Pelvis",
+          "description": "Post-3-cycle imaging showing partial response: right lower lobe pulmonary nodule reduced to 1.9 cm; hepatic lesions show 15-20% size reduction. RECIST partial response documented.",
+          "provider": "Dr. Linda Kowalski, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E013-10",
+          "date": "2024-04-10",
+          "category": "referral",
+          "title": "Palliative Care Consultation",
+          "description": "Referral made for supportive care, symptom management optimization, advance care planning discussion, and psychological support coordination.",
+          "provider": "Dr. Thomas Reeves, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E013-11",
+          "date": "2024-05-15",
+          "category": "visit",
+          "title": "Palliative Care Initial Visit & Advance Directives",
+          "description": "Comprehensive symptom assessment performed. Pain regimen optimized. Goals of care discussion held with patient and family. Advance directive documentation initiated. Psychologist referral placed.",
+          "provider": "Dr. Thomas Reeves, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E013-12",
+          "date": "2024-06-02",
+          "category": "education",
+          "title": "Chemotherapy Side Effects & Coping Strategies Session",
+          "description": "Educational session covering neuropathy management, cognitive impairment ('chemo brain') strategies, nutrition optimization, and fatigue management techniques.",
+          "provider": "Sarah Martinez RN, OCN with Dr. Michele Wu, PhD",
+          "status": "completed"
+        },
+        {
+          "id": "E013-13",
+          "date": "2024-10-09",
+          "category": "imaging",
+          "title": "MRI Brain with Contrast (Rule Out CNS Metastases)",
+          "description": "Screening for intracranial involvement given advanced disease. No acute abnormality detected. No evidence of brain metastases.",
+          "provider": "Dr. Linda Kowalski, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E013-14",
+          "date": "2024-10-30",
+          "category": "lab",
+          "title": "Routine Monitoring Labs (Overdue)",
+          "description": "Quarterly CBC, CMP, and tumor marker assessment overdue per protocol. Patient reports ongoing fatigue and intermittent nausea affecting compliance.",
+          "provider": "Quest Diagnostics",
+          "status": "overdue",
+          "details": "Patient has deferred labs due to transportation challenges and increased symptom burden. Care coordinator assisting with scheduling."
+        },
+        {
+          "id": "E013-15",
+          "date": "2024-11-20",
+          "category": "visit",
+          "title": "Oncology Restaging & Treatment Plan Adjustment",
+          "description": "Clinical reassessment after 11+ months of active treatment. Imaging to determine continued response vs. progression. Potential for treatment modification or escalation based on imaging findings.",
+          "provider": "Dr. Rebecca Valdez, MD",
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "P014",
+      "name": "Michael Chen",
+      "age": 58,
+      "gender": "Male",
+      "email": "mchen1966@gmail.com",
+      "phone": "(555) 742-8901",
+      "primaryDiagnosis": "Type 2 Diabetes Mellitus, poorly controlled",
+      "conditions": [
+        "Type 2 Diabetes Mellitus",
+        "Diabetic Peripheral Neuropathy",
+        "Diabetic Retinopathy (Non-proliferative)",
+        "Hypertension",
+        "Hyperlipidemia",
+        "Obesity (BMI 32.4)"
+      ],
+      "allergies": [
+        "Penicillin (rash)",
+        "Lisinopril (persistent cough)"
+      ],
+      "medications": [
+        "Metformin 1000 mg twice daily",
+        "Glimepiride 4 mg daily",
+        "Insulin Glargine 40 units nightly",
+        "Atorvastatin 40 mg daily",
+        "Losartan 50 mg daily",
+        "Gabapentin 300 mg three times daily",
+        "Aspirin 81 mg daily"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Sarah Patel, MD",
+          "role": "Primary Care Physician",
+          "phone": "(555) 601-2340"
+        },
+        {
+          "name": "Dr. James Rodriguez, MD",
+          "role": "Endocrinologist",
+          "phone": "(555) 821-5670"
+        },
+        {
+          "name": "Dr. Lisa Wong, MD",
+          "role": "Ophthalmologist",
+          "phone": "(555) 445-8923"
+        },
+        {
+          "name": "Dr. Marcus Thompson, DPM",
+          "role": "Podiatrist",
+          "phone": "(555) 334-7812"
+        },
+        {
+          "name": "Amanda Foster, RN, CDE",
+          "role": "Diabetes Care Coordinator",
+          "phone": "(555) 601-2356"
+        },
+        {
+          "name": "Kevin Okonkwo, MS, RD, LDN",
+          "role": "Registered Dietitian",
+          "phone": "(555) 601-2345"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E014-01",
+          "date": "2024-01-15",
+          "category": "lab",
+          "title": "Fasting Labs",
+          "description": "HbA1c, fasting glucose, comprehensive metabolic panel, lipid panel",
+          "provider": "LabCorp",
+          "status": "completed",
+          "details": "HbA1c: 9.2% (above goal of <7%), Fasting glucose: 187 mg/dL"
+        },
+        {
+          "id": "E014-02",
+          "date": "2024-01-22",
+          "category": "visit",
+          "title": "Primary Care Visit",
+          "description": "Follow-up for diabetes management and medication review",
+          "provider": "Dr. Sarah Patel, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E014-03",
+          "date": "2024-02-10",
+          "category": "visit",
+          "title": "Endocrinology Consultation",
+          "description": "Comprehensive diabetes assessment, medication adjustment, insulin titration plan",
+          "provider": "Dr. James Rodriguez, MD",
+          "status": "completed",
+          "details": "Increased Glimepiride to 4 mg daily; insulin increased from 30 to 40 units nightly; scheduled follow-up labs in 6 weeks"
+        },
+        {
+          "id": "E014-04",
+          "date": "2024-02-15",
+          "category": "education",
+          "title": "Diabetes Education Class",
+          "description": "Group session on carbohydrate counting, blood glucose monitoring, and recognizing hypoglycemia",
+          "provider": "Amanda Foster, RN, CDE",
+          "status": "completed"
+        },
+        {
+          "id": "E014-05",
+          "date": "2024-03-01",
+          "category": "visit",
+          "title": "Ophthalmology - Diabetic Eye Exam",
+          "description": "Dilated eye exam and fundus photography; assessment of retinopathy progression",
+          "provider": "Dr. Lisa Wong, MD",
+          "status": "completed",
+          "details": "Confirmed non-proliferative diabetic retinopathy; mild microaneurysms noted; no immediate laser treatment needed; advised tight glucose control"
+        },
+        {
+          "id": "E014-06",
+          "date": "2024-03-10",
+          "category": "lab",
+          "title": "Repeat Fasting Labs",
+          "description": "HbA1c, fasting glucose, comprehensive metabolic panel",
+          "provider": "LabCorp",
+          "status": "completed",
+          "details": "HbA1c: 8.8% (slight improvement), Fasting glucose: 165 mg/dL"
+        },
+        {
+          "id": "E014-07",
+          "date": "2024-03-25",
+          "category": "visit",
+          "title": "Podiatry Foot Assessment",
+          "description": "Comprehensive foot exam, monofilament testing, assessment of neuropathic pain and callus formation",
+          "provider": "Dr. Marcus Thompson, DPM",
+          "status": "completed",
+          "details": "Confirmed moderate peripheral neuropathy; protective sensation reduced; no active ulcers; prescribed custom insoles; advised on daily foot checks"
+        },
+        {
+          "id": "E014-08",
+          "date": "2024-04-05",
+          "category": "education",
+          "title": "Individual Nutrition Counseling",
+          "description": "One-on-one consultation on meal planning, portion control, and weight management",
+          "provider": "Kevin Okonkwo, MS, RD, LDN",
+          "status": "completed"
+        },
+        {
+          "id": "E014-09",
+          "date": "2024-04-20",
+          "category": "visit",
+          "title": "Endocrinology Follow-up",
+          "description": "Review of home glucose logs, medication tolerance assessment, adjustment of diabetes management plan",
+          "provider": "Dr. James Rodriguez, MD",
+          "status": "completed",
+          "details": "Reviewed logs showing dawn phenomenon; morning glucose 150-180 mg/dL; discussed potential for additional basal insulin"
+        },
+        {
+          "id": "E014-10",
+          "date": "2024-05-08",
+          "category": "lab",
+          "title": "Comprehensive Labs (Overdue)",
+          "description": "HbA1c, fasting glucose, comprehensive metabolic panel, lipid panel, urine microalbumin",
+          "provider": "LabCorp",
+          "status": "overdue",
+          "details": "Originally scheduled for 2024-05-01; patient missed initial appointment; requires completion for endocrinology follow-up planning"
+        },
+        {
+          "id": "E014-11",
+          "date": "2024-11-15",
+          "category": "referral",
+          "title": "Referral to Endocrinology (Upcoming)",
+          "description": "Urgent follow-up with endocrinologist to address persistently elevated HbA1c and neuropathy progression",
+          "provider": "Dr. James Rodriguez, MD",
+          "status": "upcoming",
+          "details": "Scheduled following missed labs; address medication compliance and consider insulin pump therapy"
+        },
+        {
+          "id": "E014-12",
+          "date": "2024-12-10",
+          "category": "procedure",
+          "title": "Retinal Imaging and Assessment (Upcoming)",
+          "description": "Repeat dilated eye exam and optical coherence tomography (OCT) to monitor retinopathy progression",
+          "provider": "Dr. Lisa Wong, MD",
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "P015",
+      "name": "Marcus Johnson",
+      "age": 52,
+      "gender": "Male",
+      "email": "m.johnson.1972@gmail.com",
+      "phone": "(555) 423-7891",
+      "primaryDiagnosis": "Pre-diabetes with metabolic syndrome",
+      "conditions": [
+        "Pre-diabetes (Fasting glucose 110-125 mg/dL)",
+        "Metabolic syndrome",
+        "Hypertension",
+        "Overweight (BMI 28.5)"
+      ],
+      "allergies": [
+        "Lisinopril (ACE inhibitor rash)",
+        "Penicillin (anaphylaxis)"
+      ],
+      "medications": [
+        "Losartan 50mg daily",
+        "Atorvastatin 20mg nightly",
+        "Metformin 500mg twice daily"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Sarah Chen, MD",
+          "role": "Primary Care Physician",
+          "phone": "(555) 202-4156"
+        },
+        {
+          "name": "Maria Rodriguez, RN",
+          "role": "Care Coordinator",
+          "phone": "(555) 202-4167"
+        },
+        {
+          "name": "Dr. James Patel, MD",
+          "role": "Endocrinologist",
+          "phone": "(555) 651-8934"
+        },
+        {
+          "name": "Lisa Thompson, MS, RD",
+          "role": "Registered Dietitian",
+          "phone": "(555) 651-8945"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E015-01",
+          "date": "2024-04-15",
+          "category": "visit",
+          "title": "Initial Pre-diabetes Screening",
+          "description": "Patient presented with fatigue and increased thirst. Fasting glucose 118 mg/dL. Pre-diabetes diagnosis confirmed. Discussed lifestyle modifications and medication initiation.",
+          "provider": "Dr. Sarah Chen, MD",
+          "status": "completed"
+        },
+        {
+          "id": "E015-02",
+          "date": "2024-05-20",
+          "category": "lab",
+          "title": "Hemoglobin A1C Test",
+          "description": "Baseline A1C drawn at primary care office.",
+          "provider": "Quest Diagnostics",
+          "status": "completed"
+        },
+        {
+          "id": "E015-03",
+          "date": "2024-06-10",
+          "category": "referral",
+          "title": "Referral to Endocrinology",
+          "description": "Referred to Dr. James Patel for specialized diabetes management and treatment optimization. Patient indicated to schedule within 4-6 weeks.",
+          "provider": "Dr. Sarah Chen, MD",
+          "status": "overdue",
+          "details": "Appointment not scheduled. Patient reported schedule conflicts and transportation barriers. Follow-up attempts by care coordinator on 2024-10-22 and 2024-11-05 unsuccessful."
+        },
+        {
+          "id": "E015-04",
+          "date": "2024-07-30",
+          "category": "education",
+          "title": "Diabetes Prevention Program Education",
+          "description": "Group education session on diet, exercise, and glucose monitoring. Patient attended; provided with educational materials and glucose log.",
+          "provider": "Lisa Thompson, MS, RD",
+          "status": "completed"
+        },
+        {
+          "id": "E015-05",
+          "date": "2024-09-15",
+          "category": "lab",
+          "title": "Repeat Hemoglobin A1C and Metabolic Panel",
+          "description": "Follow-up labs ordered at 3-month interval to assess response to treatment and lifestyle changes.",
+          "provider": "Dr. Sarah Chen, MD",
+          "status": "overdue",
+          "details": "Labs ordered but patient has not completed. Lab requisition expires 2024-11-15. No glucose values logged in past 6 weeks. Medication refills pending lab results."
+        },
+        {
+          "id": "E015-06",
+          "date": "2024-12-10",
+          "category": "visit",
+          "title": "Pre-diabetes Follow-up Visit - Urgent",
+          "description": "Appointment scheduled to reassess metabolic status, review overdue lab work, address care gaps, and determine need for intensified intervention or endocrinology referral.",
+          "provider": "Dr. Sarah Chen, MD",
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "P016",
+      "name": "Robert Marshall",
+      "age": 58,
+      "gender": "Male",
+      "email": "rmarshall1966@gmail.com",
+      "phone": "(555) 428-7391",
+      "primaryDiagnosis": "Hyperlipidemia",
+      "conditions": [
+        "Hyperlipidemia",
+        "Hypertension",
+        "Overweight"
+      ],
+      "allergies": [
+        "Penicillin"
+      ],
+      "medications": [
+        "Atorvastatin 40mg daily",
+        "Lisinopril 10mg daily",
+        "Aspirin 81mg daily"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Michael Chen",
+          "role": "Primary Care Physician",
+          "phone": "(555) 612-4829"
+        },
+        {
+          "name": "Dr. Sarah Patel",
+          "role": "Cardiologist",
+          "phone": "(555) 819-3456"
+        },
+        {
+          "name": "Rebecca Torres",
+          "role": "Registered Nurse Care Coordinator",
+          "phone": "(555) 723-5618"
+        },
+        {
+          "name": "Dr. James Mitchell",
+          "role": "Gastroenterologist",
+          "phone": "(555) 541-2790"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E016-01",
+          "date": "2023-06-15",
+          "category": "visit",
+          "title": "Annual Physical Exam",
+          "description": "Patient presented for routine annual physical. Reviewed cardiovascular risk factors given hyperlipidemia diagnosis. Discussed need for updated lipid panel and colonoscopy screening.",
+          "provider": "Dr. Michael Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E016-02",
+          "date": "2023-06-22",
+          "category": "lab",
+          "title": "Lipid Panel",
+          "description": "Fasting lipid panel completed. Total cholesterol 245 mg/dL, LDL 160 mg/dL, HDL 38 mg/dL, Triglycerides 185 mg/dL. Results indicate suboptimal control on current statin therapy.",
+          "provider": "Quest Diagnostics",
+          "status": "completed"
+        },
+        {
+          "id": "E016-03",
+          "date": "2023-07-10",
+          "category": "visit",
+          "title": "Cardiology Consultation",
+          "description": "Referral follow-up with cardiology regarding lipid management. Discussed potential need for additional lipid-lowering therapy. Patient agreed to diet and exercise modifications before medication adjustment.",
+          "provider": "Dr. Sarah Patel",
+          "status": "completed"
+        },
+        {
+          "id": "E016-04",
+          "date": "2024-03-01",
+          "category": "lab",
+          "title": "Lipid Panel - OVERDUE",
+          "description": "Lipid panel was due 9 months post-initial labs. Patient has not completed despite multiple reminders. Critical for monitoring statin efficacy and cardiovascular risk.",
+          "provider": "Quest Diagnostics",
+          "status": "overdue",
+          "details": "Originally scheduled for March 2024. Patient reported busy with work and has been postponing. Reminder sent via patient portal and phone."
+        },
+        {
+          "id": "E016-05",
+          "date": "2024-09-15",
+          "category": "procedure",
+          "title": "Colonoscopy Screening - OVERDUE",
+          "description": "Screening colonoscopy was recommended during 2023 annual physical as patient is 58 years old and due for routine colorectal cancer screening. Procedure order placed but patient has not scheduled.",
+          "provider": "Dr. James Mitchell",
+          "status": "overdue",
+          "details": "Order placed June 2023. Patient has declined twice citing scheduling conflicts and anxiety about procedure. Care coordinator has attempted contact multiple times without response."
+        },
+        {
+          "id": "E016-06",
+          "date": "2024-11-08",
+          "category": "visit",
+          "title": "Follow-up Visit - Care Gap Addressed",
+          "description": "Patient came in for medication refill. Care coordinator reviewed overdue lipid panel and colonoscopy. Patient acknowledged need for screening but requested to schedule colonoscopy in January 2025. Offered referral to colonoscopy prep education.",
+          "provider": "Dr. Michael Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E016-07",
+          "date": "2024-12-01",
+          "category": "lab",
+          "title": "Lipid Panel - IN PROGRESS",
+          "description": "Lipid panel ordered and patient scheduled for December 2024. Lab requisition provided. Fasting labs to assess response to current Atorvastatin therapy after 18 months.",
+          "provider": "Quest Diagnostics",
+          "status": "in-progress",
+          "details": "Patient committed to completing labs this month prior to year-end visit with cardiologist."
+        },
+        {
+          "id": "E016-08",
+          "date": "2025-01-20",
+          "category": "procedure",
+          "title": "Colonoscopy Screening - Upcoming",
+          "description": "Routine colorectal cancer screening scheduled. Pre-procedure visit and prep instructions to be sent to patient. Given age 58, screening is overdue and clinically indicated.",
+          "provider": "Dr. James Mitchell",
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "P017",
+      "name": "Jessica Martinez",
+      "age": 31,
+      "gender": "Female",
+      "email": "jessica.martinez87@gmail.com",
+      "phone": "(555) 287-4521",
+      "primaryDiagnosis": "Postpartum depression with missed follow-up care",
+      "conditions": [
+        "Postpartum depression",
+        "Gestational hypertension (resolved)",
+        "Postpartum anemia"
+      ],
+      "allergies": [
+        "Penicillin (rash)",
+        "Latex"
+      ],
+      "medications": [
+        "Sertraline 50mg daily",
+        "Iron supplement 325mg daily",
+        "Prenatal vitamin"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Sarah Chen",
+          "role": "OB/GYN",
+          "phone": "(555) 412-7834"
+        },
+        {
+          "name": "Dr. Michael Torres",
+          "role": "Psychiatrist",
+          "phone": "(555) 623-9147"
+        },
+        {
+          "name": "Karen Sullivan, LCSW",
+          "role": "Mental Health Counselor",
+          "phone": "(555) 501-2356"
+        },
+        {
+          "name": "Rebecca Kim, RN",
+          "role": "Postpartum Care Coordinator",
+          "phone": "(555) 334-8921"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E017-01",
+          "date": "2024-06-15",
+          "category": "visit",
+          "title": "Hospital Discharge - Postpartum",
+          "description": "Patient discharged after uncomplicated vaginal delivery. Baby born 6/13/2024. Postpartum vital signs stable. Counseled on postpartum warning signs and follow-up care.",
+          "provider": "Dr. Sarah Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E017-02",
+          "date": "2024-07-02",
+          "category": "visit",
+          "title": "6-Week Postpartum Check-up",
+          "description": "Routine postpartum evaluation. Patient reports fatigue and mild mood changes. Hemoglobin 9.2 g/dL (anemia). Vital signs normal. Started iron supplementation.",
+          "provider": "Dr. Sarah Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E017-03",
+          "date": "2024-07-15",
+          "category": "education",
+          "title": "Postpartum Mental Health Screening - Scheduled",
+          "description": "Patient scheduled for postpartum depression screening (PHQ-9) and initial psychiatric evaluation. Appointment time provided: 2:00 PM at Behavioral Health Center.",
+          "provider": "Dr. Michael Torres",
+          "status": "overdue",
+          "details": "Patient missed appointment on 2024-07-15. No-show reported. Rescheduling attempts unsuccessful - no response to phone calls or messages."
+        },
+        {
+          "id": "E017-04",
+          "date": "2024-08-30",
+          "category": "visit",
+          "title": "12-Week Postpartum Visit (Rescheduled)",
+          "description": "Follow-up postpartum examination to assess physical recovery, wound healing, and mood screening.",
+          "provider": "Dr. Sarah Chen",
+          "status": "overdue",
+          "details": "Scheduled for 2024-08-30 but patient did not attend. Care coordinator attempted contact on 3 occasions. Patient reported transportation barriers. Now 3+ months overdue."
+        },
+        {
+          "id": "E017-05",
+          "date": "2024-10-18",
+          "category": "lab",
+          "title": "Repeat Hemoglobin Lab Work",
+          "description": "Follow-up anemia assessment. Lab order placed to evaluate response to iron supplementation.",
+          "provider": "Dr. Sarah Chen",
+          "status": "overdue",
+          "details": "Lab requisition provided at 6-week visit but specimen never collected. Patient reports difficulty scheduling appointment at lab due to childcare."
+        },
+        {
+          "id": "E017-06",
+          "date": "2024-11-22",
+          "category": "visit",
+          "title": "Mental Health Intake and PHQ-9 Assessment",
+          "description": "Comprehensive psychiatric evaluation including postpartum depression screening, medication management discussion, and psychotherapy planning.",
+          "provider": "Dr. Michael Torres",
+          "status": "upcoming",
+          "details": "Recently rescheduled by care coordinator. Patient confirmed attendance. Telehealth option offered to reduce barriers."
+        }
+      ]
+    },
+    {
+      "id": "P018",
+      "name": "Luke Baker",
+      "age": 58,
+      "gender": "Male",
+      "email": "mjohnson.1966@gmail.com",
+      "phone": "(555) 423-7841",
+      "primaryDiagnosis": "Essential Hypertension, uncontrolled",
+      "conditions": [
+        "Essential Hypertension",
+        "Type 2 Diabetes Mellitus",
+        "Hyperlipidemia",
+        "Obesity (BMI 31.2)"
+      ],
+      "allergies": [
+        "Lisinopril (ACE inhibitor rash)"
+      ],
+      "medications": [
+        "Amlodipine 5 mg daily",
+        "Hydrochlorothiazide 25 mg daily",
+        "Metformin 1000 mg twice daily",
+        "Atorvastatin 40 mg daily"
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Sarah Chen",
+          "role": "Primary Care Physician",
+          "phone": "(555) 601-2847"
+        },
+        {
+          "name": "James Rodriguez, RN",
+          "role": "Care Coordinator",
+          "phone": "(555) 601-2850"
+        },
+        {
+          "name": "Dr. Michael Patterson",
+          "role": "Cardiologist",
+          "phone": "(555) 784-5130"
+        },
+        {
+          "name": "Lisa Thompson, RD",
+          "role": "Registered Dietitian",
+          "phone": "(555) 601-2875"
+        }
+      ],
+      "careEvents": [
+        {
+          "id": "E018-01",
+          "date": "2024-02-14",
+          "category": "visit",
+          "title": "Primary Care Annual Exam",
+          "description": "Annual physical examination. BP 148/92 mmHg. Patient reports inconsistent medication adherence due to cost and side effects. Discussed importance of blood pressure control.",
+          "provider": "Dr. Sarah Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E018-02",
+          "date": "2024-02-28",
+          "category": "lab",
+          "title": "Lipid Panel",
+          "description": "Fasting lipid panel ordered to assess cholesterol levels given family history of early MI.",
+          "provider": "Dr. Sarah Chen",
+          "status": "completed"
+        },
+        {
+          "id": "E018-03",
+          "date": "2024-04-10",
+          "category": "visit",
+          "title": "Cardiology Consultation",
+          "description": "Referred by PCP due to uncontrolled hypertension and family history of cardiac disease. EKG performed, echo recommended for further evaluation.",
+          "provider": "Dr. Michael Patterson",
+          "status": "completed"
+        },
+        {
+          "id": "E018-04",
+          "date": "2024-05-20",
+          "category": "imaging",
+          "title": "Transthoracic Echocardiogram",
+          "description": "Cardiac ultrasound to assess left ventricular function and rule out hypertensive cardiomyopathy.",
+          "provider": "Dr. Michael Patterson",
+          "status": "completed",
+          "details": "Results pending final cardiology interpretation"
+        },
+        {
+          "id": "E018-05",
+          "date": "2024-06-15",
+          "category": "lab",
+          "title": "Hemoglobin A1C and Metabolic Panel - OVERDUE",
+          "description": "Labs ordered to monitor diabetes control and kidney function on current medications.",
+          "provider": "Dr. Sarah Chen",
+          "status": "overdue",
+          "details": "Patient missed lab appointment on 2024-06-15; rescheduled twice, has not completed. Last A1C was 8.2% in February 2024."
+        },
+        {
+          "id": "E018-06",
+          "date": "2024-08-22",
+          "category": "visit",
+          "title": "Follow-up with PCP - OVERDUE",
+          "description": "Scheduled follow-up to address medication adherence, review cardiology results, and reassess blood pressure control.",
+          "provider": "Dr. Sarah Chen",
+          "status": "overdue",
+          "details": "Patient did not attend. Called twice by clinic staff but was unreachable. Blood pressure continues uncontrolled per patient self-monitoring at home (145-155 systolic)."
+        },
+        {
+          "id": "E018-07",
+          "date": "2024-11-05",
+          "category": "education",
+          "title": "Nutrition and Lifestyle Counseling - Upcoming",
+          "description": "Scheduled dietary counseling to address diet compliance, sodium restriction, and weight management as part of care coordination for hypertension and diabetes management.",
+          "provider": "Lisa Thompson, RD",
+          "status": "upcoming"
+        },
+        {
+          "id": "E018-08",
+          "date": "2024-12-10",
+          "category": "visit",
+          "title": "Cardiology Follow-up - Upcoming",
+          "description": "Follow-up visit with cardiology to discuss echo results, medication optimization, and risk stratification.",
+          "provider": "Dr. Michael Patterson",
+          "status": "upcoming"
+        }
+      ]
+    }
+  ]
+}
