@@ -1,0 +1,39 @@
+#!/bin/sh
+# Pre-commit hook: Run linter, type-check, and unit tests
+# This prevents committing code that fails linting or tests
+
+echo "🔍 Running pre-commit checks..."
+echo ""
+
+# Run ESLint
+echo "📝 Linting TypeScript files..."
+npm run lint || {
+  echo "❌ Linting failed. Fix errors and try again."
+  echo "   Run: npm run lint:fix"
+  exit 1
+}
+
+echo "✅ Linting passed"
+echo ""
+
+# Run TypeScript type check
+echo "📋 Type checking..."
+npm run type-check || {
+  echo "❌ Type checking failed. Fix errors and try again."
+  exit 1
+}
+
+echo "✅ Type checking passed"
+echo ""
+
+# Run unit tests (quick ones only)
+echo "🧪 Running unit tests..."
+npm test -- --passWithNoTests || {
+  echo "❌ Unit tests failed. Fix errors and try again."
+  echo "   Run: npm test -- --watch"
+  exit 1
+}
+
+echo "✅ Unit tests passed"
+echo ""
+echo "✨ Pre-commit checks passed! Ready to commit."

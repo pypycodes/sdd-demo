@@ -1,0 +1,28 @@
+{
+  "integration": "rovodev",
+  "version": "0.12.8.dev0",
+  "installed_at": "2026-07-08T15:32:50.725234+00:00",
+  "files": {
+    ".rovodev/skills/speckit-analyze/SKILL.md": "2e89ffed73764eb9d3ee2d9fba7e245a5e73229b809ddec52409ca74c44e585d",
+    ".rovodev/skills/speckit-clarify/SKILL.md": "5095627c89a249d402ad2d0fad425ea0c0bd5e8559e9d6f5b682dea4f513ed54",
+    ".rovodev/skills/speckit-constitution/SKILL.md": "87f247a2e947b44f9248491dcbedbfc650d095dde6498938b6be7a413b418d5e",
+    ".rovodev/skills/speckit-implement/SKILL.md": "d31986feebd257c7ebbca443d432c6484046a951149f831281fbba61adcd5889",
+    ".rovodev/skills/speckit-converge/SKILL.md": "1355b748919c7750cc87be94534192e5ff227229c14cbd34ca993a5f977a4ce2",
+    ".rovodev/skills/speckit-plan/SKILL.md": "8c4fdc1920bd0ff1fdf17935efe8044d82437afb9935999f483556017e8540bb",
+    ".rovodev/skills/speckit-checklist/SKILL.md": "4eb7e030d04014e6bbf5177f84aeef19b11adfa8470a14dd18506f65c7cf9dcb",
+    ".rovodev/skills/speckit-specify/SKILL.md": "73518d4f228a59621e96c7787051057afd389d0978b73ac7e7721991df6b3f87",
+    ".rovodev/skills/speckit-tasks/SKILL.md": "e08c8def433c9964e3e4446cb5ebbd97a1a85cb046ffd4c85c3405f58593f503",
+    ".rovodev/skills/speckit-taskstoissues/SKILL.md": "2c00fdc774cb9b435ea8566c7efa8b208568d533d57529e61c35f18aa52d6c67",
+    ".rovodev/prompts/speckit-analyze.prompt.md": "a47909b589bb82f088f7f0f4c056d20a6299e23175fb538ad326f94f0d1f98bb",
+    ".rovodev/prompts/speckit-clarify.prompt.md": "bc465db6b39de5d25aec5d68ad183bd9470f565b185dc023db9fa1f48063305c",
+    ".rovodev/prompts/speckit-constitution.prompt.md": "dc3ad143a257c0f7585b837b2210ea8aba8b5ef030da98b2191f6c60f8dff70f",
+    ".rovodev/prompts/speckit-implement.prompt.md": "a8a443dbe770540949f248b8bd073f956ecb45b5fd8202b8ab83a916ce27135c",
+    ".rovodev/prompts/speckit-converge.prompt.md": "44ce6a7eb921c651fe0babdf078b5461799460579738bd71295d3604b0273df8",
+    ".rovodev/prompts/speckit-plan.prompt.md": "85ac9af09e6708b51b44c0d6214d62bd33c39a55d54367c23ea439822ed157dc",
+    ".rovodev/prompts/speckit-checklist.prompt.md": "734d731850c6534c330a6bb349810c2fc4599e9dfe892d06faac6daa5aa5ee4a",
+    ".rovodev/prompts/speckit-specify.prompt.md": "bb316d4b0b18425843820af8b4c23b18980f67e5f95a52f4656abffff191b484",
+    ".rovodev/prompts/speckit-tasks.prompt.md": "299866a3bfd8f67cf4defb9b2d7a4c6c5e92befab840fb2dd98fd9ef3f856e6a",
+    ".rovodev/prompts/speckit-taskstoissues.prompt.md": "88852fd857465e9dca0c2a5b54644254ba7a681550490c896d76c818433f616c",
+    ".rovodev/prompts.yml": "aefdf3e107bab9b9dad0ee55d8812b457ab26b259b6e188df3b0e6fcfda6f9f2"
+  }
+}

@@ -1,0 +1,28 @@
+#!/bin/sh
+# Pre-push hook: Run full test suite and verify coverage
+# This prevents pushing code that fails tests or coverage threshold
+
+echo "🚀 Running pre-push checks..."
+echo ""
+
+# Run full test suite with coverage
+echo "📊 Running full test suite with coverage (must be ≥85%)..."
+npm test -- --coverage --passWithNoTests || {
+  echo "❌ Tests failed or coverage below threshold. Fix and try again."
+  echo "   Run: npm test:coverage"
+  exit 1
+}
+
+echo "✅ Tests passed and coverage threshold met (≥85%)"
+echo ""
+
+# Run integration tests if they exist
+echo "🔗 Running integration tests..."
+npm test -- --testPathPattern=integration --passWithNoTests || {
+  echo "❌ Integration tests failed. Fix errors and try again."
+  exit 1
+}
+
+echo "✅ Integration tests passed"
+echo ""
+echo "🎉 Pre-push checks passed! Ready to push."
