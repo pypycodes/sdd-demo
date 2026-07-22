@@ -3,7 +3,8 @@ import { SAMPLE_PATIENTS, findPatientById } from '../data/sample-patients';
 import { analyzeCareJourney, getProviderLabel } from '../services/ai-service';
 import { textToSpeech } from '../services/voice-service';
 import { saveConversation, getConversationsByPatient, getConversationById, deleteConversation } from '../services/transcript-service';
-import { ApiResponse, JourneyAnalysis, Patient, VoiceConversation, VoiceTranscriptEntry } from '../types/care-journey';
+import { getUnreadCount, getLatestUnreadMessage, markMessageAsRead } from '../services/message-service';
+import { ApiResponse, JourneyAnalysis, Patient, VoiceConversation, VoiceTranscriptEntry, Message } from '../types/care-journey';
 
 const router = Router();
 
@@ -51,6 +52,69 @@ router.post('/patients/:id/analyze', async (req: Request, res: Response): Promis
     console.error(`AI analysis failed [${getProviderLabel()}]:`, message);
     const response: ApiResponse<never> = { success: false, error: `AI analysis failed: ${message}` };
     res.status(500).json(response);
+  }
+});
+
+/** GET /api/patients/:id/messages/unread-count — Get unread message count for patient */
+router.get('/patients/:id/messages/unread-count', (req: Request, res: Response): void => {
+  const patient: Patient | undefined = findPatientById(req.params.id);
+  if (!patient) {
+    const response: ApiResponse<never> = { success: false, error: 'Patient not found' };
+    res.status(404).json(response);
+    return;
+  }
+
+  const unreadCount = getUnreadCount(req.params.id);
+  const latestMessage = getLatestUnreadMessage(req.params.id);
+
+  interface MessagePreview {
+    id: string;
+    providerId: string;
+    providerName: string;
+    providerSpecialty: string;
+    timestamp: string;
+    content: string;
+    isRead: boolean;
+  }
+
+  interface UnreadCountResponse {
+    patientId: string;
+    unreadCount: number;
+    latestMessage: MessagePreview | null;
+  }
+
+  const response: ApiResponse<UnreadCountResponse> = {
+    success: true,
+    data: {
+      patientId: req.params.id,
+      unreadCount,
+      latestMessage: latestMessage
+        ? {
+            id: latestMessage.id,
+            providerId: latestMessage.providerId,
+            providerName: latestMessage.providerName,
+            providerSpecialty: latestMessage.providerSpecialty,
+            timestamp: latestMessage.timestamp,
+            content: latestMessage.content,
+            isRead: latestMessage.isRead,
+          }
+        : null,
+    },
+  };
+  res.json(response);
+});
+
+/** POST /api/patients/:patientId/messages/:messageId/mark-read — Mark a message as read */
+router.post('/patients/:patientId/messages/:messageId/mark-read', (req: Request, res: Response): void => {
+  const { patientId, messageId } = req.params;
+  try {
+    markMessageAsRead(patientId, messageId);
+    const response: ApiResponse<{ marked: boolean }> = { success: true, data: { marked: true } };
+    res.json(response);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    const response: ApiResponse<never> = { success: false, error: `Failed to mark message as read: ${message}` };
+    res.status(400).json(response);
   }
 });
 

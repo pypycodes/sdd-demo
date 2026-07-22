@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NextGen Care Portal</title>
+  <title>Care Portal</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,10 +13,10 @@
       theme: {
         extend: {
           colors: {
-            'ng-dark': '#1e293b',
-            'ng-blue': '#2563eb',
-            'ng-orange': '#f97316',
-            'ng-teal': '#0d9488',
+            'brand-dark': '#1e293b',
+            'brand-blue': '#2563eb',
+            'brand-orange': '#f97316',
+            'brand-teal': '#0d9488',
           }
         }
       }
@@ -38,19 +38,69 @@
     details summary { cursor: pointer; list-style: none; }
     details summary::-webkit-details-marker { display: none; }
     .step-badge { font-size: 0.65rem; padding: 3px 10px; border-radius: 9999px; font-weight: 600; }
+
+    /* Notification Bubble Styles */
+    .notification-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+    }
+    .notification-badge:hover { background-color: #f3f4f6; }
+    .notification-badge:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; }
+    .badge-number {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      font-size: 10px;
+      font-weight: 700;
+      color: white;
+      background-color: #ef4444;
+      border-radius: 9999px;
+      min-width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      border: 2px solid white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .notification-badge.no-messages .badge-number { display: none; }
+    .preview-tooltip {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 8px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+      width: 300px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      z-index: 50;
+      animation: fadeInDown 0.2s ease-out;
+    }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    .preview-provider { font-weight: 600; color: #111827; font-size: 14px; margin-bottom: 2px; }
+    .preview-timestamp { font-size: 11px; color: #6b7280; margin-bottom: 8px; }
+    .preview-message { font-size: 13px; color: #374151; line-height: 1.5; }
   </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
   <!-- Login Screen -->
   <div id="login-screen" class="min-h-screen flex">
     <!-- Left: Decorative -->
-    <div class="hidden lg:flex lg:w-1/2 bg-ng-dark relative overflow-hidden">
+    <div class="hidden lg:flex lg:w-1/2 bg-brand-dark relative overflow-hidden">
       <div class="absolute inset-0 flex items-center justify-center">
         <div class="relative">
           <div class="w-64 h-64 border-4 border-white/20 rounded-full"></div>
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-4 border-white/15 rounded-full"></div>
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-4 border-white/10 rounded-full"></div>
-          <div class="absolute -top-8 -right-8 w-16 h-16 border-4 border-ng-orange rounded-full"></div>
+          <div class="absolute -top-8 -right-8 w-16 h-16 border-4 border-brand-orange rounded-full"></div>
         </div>
       </div>
     </div>
@@ -58,32 +108,32 @@
     <div class="flex-1 flex items-center justify-center p-8">
       <div class="w-full max-w-sm">
         <div class="flex items-center gap-2 mb-8">
-          <svg class="w-8 h-8 text-ng-orange" viewBox="0 0 24 24" fill="currentColor">
+          <svg class="w-8 h-8 text-brand-orange" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
           </svg>
-          <span class="text-2xl font-bold text-ng-dark">nextgen</span>
+          <span class="text-2xl font-bold text-brand-dark">Product</span>
           <span class="text-xs text-gray-400 ml-1">HEALTHCARE</span>
         </div>
         <h2 class="text-xl font-semibold text-gray-800 mb-6">Sign In</h2>
         <div class="space-y-4">
           <div>
             <label class="text-xs text-gray-500 mb-1 block">Username</label>
-            <select id="login-patient-select" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-ng-blue focus:border-ng-blue">
+            <select id="login-patient-select" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-blue focus:border-brand-blue">
               <option value="">Select a patient to simulate...</option>
             </select>
           </div>
           <div>
             <label class="text-xs text-gray-500 mb-1 block">Password</label>
             <input type="password" value="••••••••" disabled class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm bg-gray-50 text-gray-400" />
-            <a href="#" class="text-xs text-ng-blue hover:underline float-right mt-1">Forgot Password?</a>
+            <a href="#" class="text-xs text-brand-blue hover:underline float-right mt-1">Forgot Password?</a>
           </div>
-          <button onclick="handleLogin()" class="w-full bg-ng-dark text-white rounded-lg px-4 py-3 text-sm font-medium hover:bg-gray-800 transition flex items-center justify-center gap-2 mt-6">
+          <button onclick="handleLogin()" class="w-full bg-brand-dark text-white rounded-lg px-4 py-3 text-sm font-medium hover:bg-gray-800 transition flex items-center justify-center gap-2 mt-6">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
             Sign In
           </button>
         </div>
         <p class="text-[10px] text-gray-400 text-center mt-8">
-          By using NextGen, you agree to our <a href="#" class="text-ng-blue hover:underline">User Agreement</a>.
+          By using Product, you agree to our <a href="#" class="text-brand-blue hover:underline">User Agreement</a>.
         </p>
       </div>
     </div>
@@ -92,10 +142,10 @@
   <!-- Main App (hidden until login) -->
   <div id="main-app" class="hidden min-h-screen flex">
     <!-- Sidebar -->
-    <aside class="w-56 bg-ng-dark text-white flex flex-col fixed h-full z-20">
+    <aside class="w-56 bg-brand-dark text-white flex flex-col fixed h-full z-20">
       <div class="p-4 border-b border-white/10">
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 bg-ng-blue rounded-lg flex items-center justify-center text-xs font-bold">P</div>
+          <div class="w-8 h-8 bg-brand-blue rounded-lg flex items-center justify-center text-xs font-bold">P</div>
           <div>
             <p class="text-xs text-gray-400">Practice</p>
             <p class="text-sm font-medium" id="sidebar-practice">Demo Practice</p>
@@ -135,12 +185,27 @@
       <header class="bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between sticky top-0 z-10">
         <div></div>
         <div class="flex items-center gap-4">
-          <button class="text-gray-400 hover:text-gray-600">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
-          </button>
+          <!-- Notification Bubble -->
+          <div id="notification-bubble" class="notification-badge no-messages relative" role="button" tabindex="0" aria-label="0 new messages" aria-live="polite">
+            <div class="relative">
+              <svg class="w-6 h-6 text-gray-400 group-hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+              </svg>
+              <span id="unread-count" class="badge-number hidden">0</span>
+            </div>
+            
+            <!-- Message Preview Tooltip -->
+            <div id="notification-preview" class="preview-tooltip hidden" role="tooltip">
+              <div id="preview-content">
+                <div class="preview-message text-center text-gray-500">
+                  Checking for new messages...
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="relative">
             <button onclick="toggleUserMenu()" class="flex items-center gap-2 hover:bg-gray-50 rounded-lg px-2 py-1 transition">
-              <div class="w-8 h-8 bg-ng-orange rounded-full flex items-center justify-center text-white text-xs font-bold" id="user-avatar">MG</div>
+              <div class="w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center text-white text-xs font-bold" id="user-avatar">MG</div>
               <span class="text-sm font-medium text-gray-700" id="user-name">Maria Garcia</span>
               <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
@@ -152,7 +217,7 @@
               </div>
               <div class="px-4 py-2 border-b border-gray-100">
                 <p class="text-xs text-gray-500 mb-2">Switch Patient (Demo)</p>
-                <select id="switch-patient-select" onchange="switchPatient()" class="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ng-blue">
+                <select id="switch-patient-select" onchange="switchPatient()" class="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-blue">
                 </select>
               </div>
               <button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2">
@@ -191,7 +256,7 @@
               <div class="card p-5">
                 <h3 class="font-semibold text-gray-800 mb-4">Upcoming Appointments</h3>
                 <div id="appointments-list" class="space-y-3"></div>
-                <button onclick="showScheduleModal()" class="mt-4 bg-ng-dark text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-800 transition flex items-center gap-2">
+                <button onclick="showScheduleModal()" class="mt-4 bg-brand-dark text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-800 transition flex items-center gap-2">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                   Schedule Appointment
                 </button>
@@ -338,21 +403,21 @@
               <!-- Shortcuts -->
               <h3 class="font-semibold text-gray-800">Shortcuts</h3>
               <button onclick="showPage('health')" class="card p-4 w-full text-left card-hover action-btn flex items-center gap-3">
-                <svg class="w-5 h-5 text-ng-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                <svg class="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                 <span class="text-sm font-medium text-gray-700">View Results</span>
               </button>
               <button onclick="showScheduleModal()" class="card p-4 w-full text-left card-hover action-btn flex items-center gap-3">
-                <svg class="w-5 h-5 text-ng-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <svg class="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                 <span class="text-sm font-medium text-gray-700">Schedule Appointment</span>
               </button>
               <button onclick="showMessageModal()" class="card p-4 w-full text-left card-hover action-btn flex items-center gap-3">
-                <svg class="w-5 h-5 text-ng-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                <svg class="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
                 <span class="text-sm font-medium text-gray-700">Message Provider</span>
               </button>
               <button onclick="scrollToCostExplainer()" class="card p-4 w-full text-left card-hover action-btn flex items-center gap-3">
-                <svg class="w-5 h-5 text-ng-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                <svg class="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                 <span class="text-sm font-medium text-gray-700">Manage Payments</span>
-                <span id="shortcut-balance" class="ml-auto text-xs text-ng-orange font-medium"></span>
+                <span id="shortcut-balance" class="ml-auto text-xs text-brand-orange font-medium"></span>
               </button>
             </div>
           </div>
@@ -362,19 +427,19 @@
         <div id="page-mycare" class="page-content hidden">
           <h1 class="text-2xl font-semibold text-gray-800 mb-2">My Care</h1>
           <div class="flex gap-4 border-b border-gray-200 mb-6">
-            <button class="pb-3 text-sm font-medium text-ng-blue border-b-2 border-ng-blue">Care Journey</button>
-            <button class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-700">Care Team</button>
+            <button id="mycare-tab-journey" onclick="showMyCareCareTab('journey')" class="pb-3 text-sm font-medium text-brand-blue border-b-2 border-brand-blue">Care Journey</button>
+            <button id="mycare-tab-team" onclick="showMyCareCareTab('team')" class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-700">Care Team</button>
           </div>
           
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <!-- Timeline -->
-            <div class="lg:col-span-2">
+            <div id="mycare-journey-content" class="lg:col-span-2">
               <div class="card p-5">
                 <h3 class="font-semibold text-gray-800 mb-4">Care Journey</h3>
                 <div class="flex items-center gap-2 mb-4">
                   <div class="flex-1 relative">
                     <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    <input type="text" placeholder="Search..." class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-ng-blue focus:border-ng-blue" />
+                    <input type="text" placeholder="Search..." class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-brand-blue focus:border-brand-blue" />
                   </div>
                   <select class="border border-gray-200 rounded-lg px-3 py-2 text-sm">
                     <option>Past Care</option>
@@ -386,10 +451,18 @@
               </div>
             </div>
 
-            <!-- AI Insights Panel -->
-            <div class="space-y-4">
+            <!-- Care Team Section (shown when "Care Team" tab is active) -->
+            <div id="care-team-section" class="hidden lg:col-span-2">
+              <div class="card p-5">
+                <h3 class="font-semibold text-gray-800 mb-6">Care Team</h3>
+                <div id="care-team-members" class="flex flex-wrap gap-8"></div>
+              </div>
+            </div>
+
+            <!-- AI Insights Panel (only relevant to the Care Journey tab) -->
+            <div id="mycare-ai-panel" class="space-y-4">
               <div id="ai-loading" class="hidden card p-6 text-center">
-                <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-ng-blue border-t-transparent mb-3"></div>
+                <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-brand-blue border-t-transparent mb-3"></div>
                 <p class="text-sm text-gray-600">Analyzing your care journey...</p>
               </div>
               <div id="ai-insights" class="space-y-4"></div>
@@ -401,7 +474,7 @@
         <div id="page-health" class="page-content hidden">
           <h1 class="text-2xl font-semibold text-gray-800 mb-2">Health Summary</h1>
           <div class="flex gap-4 border-b border-gray-200 mb-6 overflow-x-auto">
-            <button class="pb-3 text-sm font-medium text-ng-blue border-b-2 border-ng-blue whitespace-nowrap">Medical Profile</button>
+            <button class="pb-3 text-sm font-medium text-brand-blue border-b-2 border-brand-blue whitespace-nowrap">Medical Profile</button>
             <button class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap">Personal Info</button>
             <button class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap">Insurance</button>
             <button class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap">Payments</button>
@@ -437,7 +510,7 @@
           <div class="card p-6 text-center text-gray-400">
             <svg class="w-12 h-12 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
             <p class="text-sm mb-4">No messages yet</p>
-            <button onclick="showMessageModal()" class="bg-ng-dark text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-800 transition">
+            <button onclick="showMessageModal()" class="bg-brand-dark text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-800 transition">
               Start a Conversation
             </button>
           </div>
@@ -475,7 +548,7 @@
           <li class="flex items-center gap-2">✓ Waitlist management</li>
         </ul>
       </div>
-      <button onclick="closeModals()" class="w-full bg-ng-dark text-white rounded-lg px-4 py-3 text-sm font-medium hover:bg-gray-800 transition">
+      <button onclick="closeModals()" class="w-full bg-brand-dark text-white rounded-lg px-4 py-3 text-sm font-medium hover:bg-gray-800 transition">
         Close Demo
       </button>
     </div>
@@ -485,19 +558,52 @@
   <div id="message-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-xl max-w-md w-full p-6 fade-in">
       <div class="flex items-center justify-between mb-4">
-        <h3 class="text-lg font-semibold text-gray-800">Message Provider</h3>
+        <h3 class="text-lg font-bold text-gray-800" id="modal-title">Provider Message</h3>
         <button onclick="closeModals()" class="text-gray-400 hover:text-gray-600">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
-      <p class="text-sm text-gray-500 mb-4">Send a secure message to your care team.</p>
-      <select class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm mb-3">
-        <option>Select Provider...</option>
-      </select>
-      <textarea placeholder="Type your message..." class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm h-24 resize-none mb-4"></textarea>
-      <button onclick="closeModals()" class="w-full bg-ng-dark text-white rounded-lg px-4 py-3 text-sm font-medium hover:bg-gray-800 transition">
-        Send Message
-      </button>
+      
+      <!-- Message View (New) -->
+      <div id="modal-message-view" class="space-y-4">
+        <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+          <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-sm font-bold" id="modal-provider-initials">DR</div>
+          <div>
+            <p class="text-sm font-bold text-gray-900" id="modal-provider-name">Dr. Smith</p>
+            <p class="text-xs text-gray-500" id="modal-provider-specialty">Cardiology</p>
+          </div>
+          <div class="ml-auto text-right">
+            <p class="text-[10px] text-gray-400" id="modal-message-timestamp">2h ago</p>
+          </div>
+        </div>
+        <div class="max-h-48 overflow-y-auto pr-2">
+          <p class="text-sm text-gray-600 leading-relaxed" id="modal-message-content">
+            Your lab results are ready for review.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-3 mt-6">
+          <button id="mark-read-btn" onclick="handleMarkAsRead()" class="py-2.5 bg-brand-blue text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Mark as Read
+          </button>
+          <button onclick="toggleMessageCompose()" class="py-2.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition">Reply</button>
+        </div>
+      </div>
+
+      <!-- Compose View (Existing/Modified) -->
+      <div id="modal-compose-view" class="hidden space-y-4">
+        <p class="text-sm text-gray-500 mb-4">Send a secure message to your care team.</p>
+        <select class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm mb-3">
+          <option>Select Provider...</option>
+        </select>
+        <textarea placeholder="Type your message..." class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm h-24 resize-none mb-4"></textarea>
+        <div class="grid grid-cols-2 gap-3">
+          <button onclick="closeModals()" class="w-full bg-brand-dark text-white rounded-lg px-4 py-3 text-sm font-medium hover:bg-gray-800 transition">
+            Send Message
+          </button>
+          <button onclick="toggleMessageCompose()" class="py-2.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition">Back</button>
+        </div>
+      </div>
     </div>
   </div>
 

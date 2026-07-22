@@ -340,6 +340,142 @@
       "duration": 19934,
       "summary": "You: when is my next appointment\nAI: You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.\nYou: the year of the elderly\nAI: You've made great progress with managing your Type 2 Diabetes, and it's essential to continue monitoring your condition. Your care team has been working closely with you to adjust your management plan as needed. You have upcoming appointments scheduled to review your progress and make any necessary adjustments.",
       "timestamp": "2026-07-07T09:22:01.241Z"
+    },
+    {
+      "id": "VC-1783589745638-v7ok89hxn",
+      "patientId": "P001",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "what's my balance",
+          "timestamp": "2026-07-09T09:35:45.622Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You have a balance of $82.50 due for 4 services.",
+          "timestamp": "2026-07-09T09:35:45.626Z"
+        }
+      ],
+      "duration": 6465,
+      "summary": "You: what's my balance\nAI: You have a balance of $82.50 due for 4 services.",
+      "timestamp": "2026-07-09T09:35:45.638Z"
+    },
+    {
+      "id": "VC-1783589760114-2dbgkt9fy",
+      "patientId": "P001",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "what's my balance",
+          "timestamp": "2026-07-09T09:35:45.622Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You have a balance of $82.50 due for 4 services.",
+          "timestamp": "2026-07-09T09:35:45.626Z"
+        },
+        {
+          "role": "user",
+          "text": "show me my appointments",
+          "timestamp": "2026-07-09T09:36:00.109Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+          "timestamp": "2026-07-09T09:36:00.110Z"
+        }
+      ],
+      "duration": 20949,
+      "summary": "You: what's my balance\nAI: You have a balance of $82.50 due for 4 services.\nYou: show me my appointments\nAI: You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+      "timestamp": "2026-07-09T09:36:00.114Z"
+    },
+    {
+      "id": "VC-1783589776763-zqkiutaza",
+      "patientId": "P001",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "what's my balance",
+          "timestamp": "2026-07-09T09:35:45.622Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You have a balance of $82.50 due for 4 services.",
+          "timestamp": "2026-07-09T09:35:45.626Z"
+        },
+        {
+          "role": "user",
+          "text": "show me my appointments",
+          "timestamp": "2026-07-09T09:36:00.109Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+          "timestamp": "2026-07-09T09:36:00.110Z"
+        },
+        {
+          "role": "user",
+          "text": "what are my allergies",
+          "timestamp": "2026-07-09T09:36:16.759Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You don't have any allergies listed in your record.",
+          "timestamp": "2026-07-09T09:36:16.759Z"
+        }
+      ],
+      "duration": 37598,
+      "summary": "You: what's my balance\nAI: You have a balance of $82.50 due for 4 services.\nYou: show me my appointments\nAI: You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.\nYou: what are my allergies\nAI: You don't have any allergies listed in your record.",
+      "timestamp": "2026-07-09T09:36:16.762Z"
+    },
+    {
+      "id": "VC-1783589810535-git2kgvct",
+      "patientId": "P001",
+      "transcript": [
+        {
+          "role": "user",
+          "text": "what's my balance",
+          "timestamp": "2026-07-09T09:35:45.622Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You have a balance of $82.50 due for 4 services.",
+          "timestamp": "2026-07-09T09:35:45.626Z"
+        },
+        {
+          "role": "user",
+          "text": "show me my appointments",
+          "timestamp": "2026-07-09T09:36:00.109Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.",
+          "timestamp": "2026-07-09T09:36:00.110Z"
+        },
+        {
+          "role": "user",
+          "text": "what are my allergies",
+          "timestamp": "2026-07-09T09:36:16.759Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You don't have any allergies listed in your record.",
+          "timestamp": "2026-07-09T09:36:16.759Z"
+        },
+        {
+          "role": "user",
+          "text": "what's my medication",
+          "timestamp": "2026-07-09T09:36:50.531Z"
+        },
+        {
+          "role": "assistant",
+          "text": "You are taking 1 medication: Metformin 500mg twice daily.",
+          "timestamp": "2026-07-09T09:36:50.531Z"
+        }
+      ],
+      "duration": 71370,
+      "summary": "You: what's my balance\nAI: You have a balance of $82.50 due for 4 services.\nYou: show me my appointments\nAI: You have 2 upcoming appointments. Diabetes Follow-up with Dr. Sarah Mitchell on Monday, June 15.\nYou: what are my allergies\nAI: You don't have any allergies listed in your record.\nYou: what's my medication\nAI: You are taking 1 medication: Metformin 500mg twice daily.",
+      "timestamp": "2026-07-09T09:36:50.534Z"
     }
   ]
 }

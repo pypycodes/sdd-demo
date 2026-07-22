@@ -56,6 +56,29 @@ export interface BillingSummary {
   readonly items: readonly BillingItem[];
 }
 
+/** Message from a care provider to patient */
+export interface Message {
+  readonly id: string;
+  readonly patientId: string;
+  readonly providerId: string;
+  readonly providerName: string;
+  readonly providerSpecialty: string;
+  readonly content: string;
+  readonly timestamp: string; // ISO 8601 format
+  readonly isRead: boolean;
+}
+
+/**
+ * A healthcare provider assigned to a patient's care team.
+ * The patient's primary doctor is identified by `role` (e.g. "Primary Care
+ * Physician") — there is no separate boolean flag for "primary".
+ */
+export interface CareTeamMember {
+  readonly name: string;
+  readonly role: string;
+  readonly phone: string;
+}
+
 /** Patient demographic and clinical summary */
 export interface Patient {
   readonly id: string;
@@ -64,7 +87,9 @@ export interface Patient {
   readonly gender: string;
   readonly primaryDiagnosis: string;
   readonly conditions: readonly string[];
+  readonly careTeam?: readonly CareTeamMember[];
   readonly careEvents: readonly CareEvent[];
+  readonly messages?: readonly Message[];
   readonly upcomingAppointments?: readonly UpcomingAppointment[];
   readonly billing?: BillingSummary;
 }

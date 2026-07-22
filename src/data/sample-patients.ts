@@ -1,4 +1,4 @@
-import { Patient, CareEvent, CareEventStatus, CareEventCategory, UpcomingAppointment, BillingSummary, BillingItem } from '../types/care-journey';
+import { Patient, CareEvent, CareEventStatus, CareEventCategory, UpcomingAppointment, BillingSummary, BillingItem, CareTeamMember } from '../types/care-journey';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -15,6 +15,16 @@ interface JsonPatient {
   allergies?: string[];
   medications?: string[];
   careTeam?: Array<{ name: string; role: string; phone: string }>;
+  messages?: Array<{
+    id: string;
+    patientId: string;
+    providerId: string;
+    providerName: string;
+    providerSpecialty: string;
+    content: string;
+    timestamp: string;
+    isRead: boolean;
+  }>;
   careEvents: Array<{
     id: string;
     date: string;
@@ -71,6 +81,11 @@ function loadPatientsFromJson(): Patient[] {
       gender: p.gender,
       primaryDiagnosis: p.primaryDiagnosis,
       conditions: p.conditions,
+      careTeam: p.careTeam?.map((m): CareTeamMember => ({
+        name: m.name,
+        role: m.role,
+        phone: m.phone,
+      })),
       careEvents: p.careEvents.map((e): CareEvent => ({
         id: e.id,
         date: e.date,
@@ -80,6 +95,16 @@ function loadPatientsFromJson(): Patient[] {
         provider: e.provider,
         status: e.status as CareEventStatus,
         details: e.details,
+      })),
+      messages: p.messages?.map((m) => ({
+        id: m.id,
+        patientId: m.patientId,
+        providerId: m.providerId,
+        providerName: m.providerName,
+        providerSpecialty: m.providerSpecialty,
+        content: m.content,
+        timestamp: m.timestamp,
+        isRead: m.isRead,
       })),
       upcomingAppointments: p.upcomingAppointments?.map((a): UpcomingAppointment => ({
         id: a.id,

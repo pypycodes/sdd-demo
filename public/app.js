@@ -81,6 +81,100 @@ function handleLogin() {
   // Render home page
   showPage('home');
   renderHomePage();
+  // Initialize notification bubble
+  initializeNotificationBubble();
+}
+
+// ─── Notification Bubble ──────────────────────────────────────────
+async function initializeNotificationBubble() {
+  if (!currentPatient) return;
+  
+  const bubble = document.getElementById('notification-bubble');
+  const countEl = document.getElementById('unread-count');
+  const previewEl = document.getElementById('notification-preview');
+  
+  try {
+    const res = await fetch(`/api/patients/${currentPatient.id}/messages/unread-count`);
+    const result = await res.json();
+    
+    if (result.success) {
+      const { unreadCount, latestMessage } = result.data;
+      
+      // Update count display
+      if (unreadCount > 0) {
+        countEl.textContent = unreadCount > 9 ? '9+' : unreadCount;
+        countEl.classList.remove('hidden');
+        bubble.classList.remove('no-messages');
+        bubble.setAttribute('aria-label', `${unreadCount} unread messages from providers`);
+      } else {
+        countEl.classList.add('hidden');
+        bubble.classList.add('no-messages');
+        bubble.setAttribute('aria-label', '0 new messages');
+      }
+      
+      // Setup event listeners
+      setupBubbleEvents(bubble, previewEl, unreadCount, latestMessage);
+    }
+  } catch (err) {
+    console.error('Failed to fetch unread messages:', err);
+  }
+}
+
+function setupBubbleEvents(bubble, previewEl, count, message) {
+  // Hover events
+  bubble.onmouseenter = () => renderMessagePreview(previewEl, count, message);
+  bubble.onmouseleave = () => previewEl.classList.add('hidden');
+  
+  // Click event
+  bubble.onclick = () => showMessageModal();
+  
+  // Keyboard events
+  bubble.onkeydown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      showMessageModal();
+    }
+  };
+}
+
+function renderMessagePreview(previewEl, count, message) {
+  const contentEl = document.getElementById('preview-content');
+  
+  if (count === 0) {
+    contentEl.innerHTML = `
+      <div class="preview-message text-center text-gray-500 py-2">
+        All caught up! No new messages from your providers.
+      </div>
+    `;
+  } else if (message) {
+    const timeStr = formatRelativeTime(message.timestamp);
+    contentEl.innerHTML = `
+      <div class="preview-provider">${message.providerName}</div>
+      <div class="preview-timestamp">${message.providerSpecialty} • ${timeStr}</div>
+      <div class="preview-message">${truncateText(message.content, 120)}</div>
+      <div class="mt-4 text-center">
+        <button class="text-xs font-semibold text-brand-blue hover:underline">View All Messages</button>
+      </div>
+    `;
+  }
+  
+  previewEl.classList.remove('hidden');
+}
+
+function formatRelativeTime(isoString) {
+  const date = new Date(isoString);
+  const now = new Date();
+  const diffInSeconds = Math.floor((now - date) / 1000);
+  
+  if (diffInSeconds < 60) return 'just now';
+  if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
+  if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h ago`;
+  return `${Math.floor(diffInSeconds / 86400)}d ago`;
+}
+
+function truncateText(text, length) {
+  if (text.length <= length) return text;
+  return text.substring(0, length) + '...';
 }
 
 function handleLogout() {
@@ -162,26 +256,20 @@ function renderHomePage() {
   const notifications = document.getElementById('notifications-section');
   if (overdue.length > 0) {
     notifications.innerHTML = overdue.slice(0, 3).map(e => `
-      <div class="card p-4 border-l-4 border-ng-orange">
+      <div class="card p-4 border-l-4 border-brand-orange">
         <p class="text-sm font-medium text-gray-800">${e.title}</p>
-        <p class="text-xs text-ng-orange mt-1">${e.details || 'Needs your attention'}</p>
+        <p class="text-xs text-brand-orange mt-1">${e.details || 'Needs your attention'}</p>
       </div>
     `).join('');
   } else {
     notifications.innerHTML = '';
   }
-  // Care Team
+  // Care Team (shared renderer also used by the My Care > Care Team tab,
+  // guaranteeing both locations always display identical information —
+  // including the patient's primary doctor and any other assigned providers)
   const careTeamList = document.getElementById('care-team-list');
-  if (currentPatient.careTeam) {
-    careTeamList.innerHTML = currentPatient.careTeam.map(member => `
-      <div class="flex-shrink-0 w-32 text-center">
-        <div class="w-12 h-12 bg-gray-100 rounded-full mx-auto mb-2 flex items-center justify-center text-gray-400">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-        </div>
-        <p class="text-xs font-medium text-gray-800 truncate">${member.name}</p>
-        <p class="text-[10px] text-gray-500 truncate">${member.role}</p>
-      </div>
-    `).join('');
+  if (careTeamList) {
+    careTeamList.innerHTML = renderCareTeamList(currentPatient.careTeam);
   }
   // Upcoming Appointments (from upcomingAppointments data)
   const appointments = currentPatient.upcomingAppointments || [];
@@ -614,7 +702,7 @@ function renderAiInsights() {
         <span class="text-lg">💬</span>
         <h4 class="text-sm font-semibold text-gray-800">Your Health Summary</h4>
       </div>
-      <p class="text-[11px] text-ng-teal font-medium mb-2">${aiAnalysis.currentPhase}</p>
+      <p class="text-[11px] text-brand-teal font-medium mb-2">${aiAnalysis.currentPhase}</p>
       <p class="text-sm text-gray-600 leading-relaxed">${aiAnalysis.journeySummary}</p>
     </div>
     <!-- Care Completion Stats -->
@@ -636,7 +724,7 @@ function renderAiInsights() {
       // Determine action button based on category
       let actionBtn = '';
       if (action.category === 'visit' || action.category === 'follow-up' || action.category === 'procedure') {
-        actionBtn = `<button onclick="showScheduleModal()" class="text-xs bg-ng-blue text-white px-3 py-1.5 rounded-lg hover:bg-blue-700 transition flex items-center gap-1">
+        actionBtn = `<button onclick="showScheduleModal()" class="text-xs bg-brand-blue text-white px-3 py-1.5 rounded-lg hover:bg-blue-700 transition flex items-center gap-1">
           <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
           Schedule
         </button>`;
@@ -770,7 +858,7 @@ function renderTodoPage() {
             <span class="text-[10px] text-gray-400">${action.timeframe}</span>
           </div>
         </div>
-        <button onclick="showScheduleModal()" class="text-xs bg-ng-dark text-white px-3 py-2 rounded-lg hover:bg-gray-800 transition">
+        <button onclick="showScheduleModal()" class="text-xs bg-brand-dark text-white px-3 py-2 rounded-lg hover:bg-gray-800 transition">
           Take Action
         </button>
       </div>
@@ -783,13 +871,92 @@ function showScheduleModal() {
   document.getElementById('schedule-modal').classList.remove('hidden');
 }
 
-function showMessageModal() {
-  document.getElementById('message-modal').classList.remove('hidden');
-  // Populate provider dropdown
-  if (currentPatient && currentPatient.careTeam) {
-    const select = document.querySelector('#message-modal select');
-    select.innerHTML = `<option>Select Provider...</option>` +
-      currentPatient.careTeam.map(m => `<option>${m.name} (${m.role})</option>`).join('');
+let currentMessageId = null;
+
+async function showMessageModal() {
+  if (!currentPatient) return;
+  
+  try {
+    const res = await fetch(`/api/patients/${currentPatient.id}/messages/unread-count`);
+    const result = await res.json();
+    
+    const messageModal = document.getElementById('message-modal');
+    
+    if (result.success && result.data.latestMessage) {
+      const msg = result.data.latestMessage;
+      currentMessageId = msg.id;
+      
+      // Update modal content
+      document.getElementById('modal-provider-name').textContent = msg.providerName;
+      document.getElementById('modal-provider-specialty').textContent = msg.providerSpecialty;
+      document.getElementById('modal-provider-initials').textContent = msg.providerName.split(' ').map(n => n[0]).join('').replace('Dr.', '');
+      document.getElementById('modal-message-timestamp').textContent = formatRelativeTime(msg.timestamp);
+      document.getElementById('modal-message-content').textContent = msg.content;
+      
+      // Show/hide mark as read button based on state
+      const markBtn = document.getElementById('mark-read-btn');
+      if (msg.isRead) {
+        markBtn.classList.add('hidden');
+      } else {
+        markBtn.classList.remove('hidden');
+      }
+    } else {
+      // Default placeholder if no messages
+      document.getElementById('modal-message-content').textContent = 'No new unread messages from your providers.';
+      document.getElementById('mark-read-btn').classList.add('hidden');
+    }
+    
+    messageModal.classList.remove('hidden');
+    
+    // Populate provider dropdown (existing functionality)
+    if (currentPatient.careTeam) {
+      const select = document.querySelector('#message-modal select');
+      if (select) {
+        select.innerHTML = `<option>Select Provider...</option>` +
+          currentPatient.careTeam.map(m => `<option>${m.name} (${m.role})</option>`).join('');
+      }
+    }
+  } catch (err) {
+    console.error('Failed to load message details:', err);
+    document.getElementById('message-modal').classList.remove('hidden');
+  }
+}
+
+async function handleMarkAsRead() {
+  if (!currentPatient || !currentMessageId) return;
+  
+  try {
+    const res = await fetch(`/api/patients/${currentPatient.id}/messages/${currentMessageId}/mark-read`, {
+      method: 'POST'
+    });
+    const result = await res.json();
+    
+    if (result.success) {
+      // Refresh bubble and modal
+      await initializeNotificationBubble();
+      // Update modal button state
+      document.getElementById('mark-read-btn').classList.add('hidden');
+      // Optionally close modals
+      setTimeout(closeModals, 1000);
+    }
+  } catch (err) {
+    console.error('Failed to mark message as read:', err);
+  }
+}
+
+function toggleMessageCompose() {
+  const messageView = document.getElementById('modal-message-view');
+  const composeView = document.getElementById('modal-compose-view');
+  const modalTitle = document.getElementById('modal-title');
+  
+  if (messageView.classList.contains('hidden')) {
+    messageView.classList.remove('hidden');
+    composeView.classList.add('hidden');
+    modalTitle.textContent = 'Provider Message';
+  } else {
+    messageView.classList.add('hidden');
+    composeView.classList.remove('hidden');
+    modalTitle.textContent = 'Message Provider';
   }
 }
 
@@ -1352,3 +1519,85 @@ window.handleInterrupt = handleInterrupt;
 window.sendVoiceMessage = sendVoiceMessage;
 window.playVoiceResponse = playVoiceResponse;
 window.loadTranscripts = loadTranscripts;
+
+// ==================== CARE TEAM TAB ====================
+
+/**
+ * Renders care team member cards
+ */
+function renderCareTeamList(careTeam) {
+  if (!careTeam || careTeam.length === 0) {
+    return `
+      <div class="text-center py-12 text-gray-400">
+        <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.856-1.487M15 10a3 3 0 11-6 0 3 3 0 016 0zM15 20H9m6 0h.01M9 20H3m0 0v-2a6 6 0 0112 0v2m0 0h.01"/>
+        </svg>
+        <p class="text-lg font-medium text-gray-600">No Care Team Information Available</p>
+      </div>
+    `;
+  }
+
+  // Renders identically to the Home Page care team cards (name + role only)
+  // so the Care Team tab is a pixel-perfect match of the Home Page section.
+  return careTeam.map(member => `
+    <div class="flex-shrink-0 w-32 text-center">
+      <div class="w-12 h-12 bg-gray-100 rounded-full mx-auto mb-2 flex items-center justify-center text-gray-400">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+      </div>
+      <p class="text-xs font-medium text-gray-800 truncate">${member.name}</p>
+      <p class="text-[10px] text-gray-500 truncate">${member.role}</p>
+    </div>
+  `).join('');
+}
+
+/**
+ * Show My Care tab content — toggles between the "Care Journey" timeline
+ * (+ AI insights panel) and the "Care Team" section within the My Care page.
+ */
+function showMyCareCareTab(tab) {
+  const journeyContent = document.getElementById('mycare-journey-content');
+  const aiPanel = document.getElementById('mycare-ai-panel');
+  const careTeamSection = document.getElementById('care-team-section');
+  const journeyBtn = document.getElementById('mycare-tab-journey');
+  const teamBtn = document.getElementById('mycare-tab-team');
+
+  const activeClasses = ['text-brand-blue', 'border-b-2', 'border-brand-blue'];
+  const inactiveClasses = ['text-gray-500', 'hover:text-gray-700'];
+
+  if (tab === 'team') {
+    if (journeyContent) journeyContent.classList.add('hidden');
+    if (aiPanel) aiPanel.classList.add('hidden');
+    if (careTeamSection) careTeamSection.classList.remove('hidden');
+    if (teamBtn) { teamBtn.classList.remove(...inactiveClasses); teamBtn.classList.add(...activeClasses); }
+    if (journeyBtn) { journeyBtn.classList.remove(...activeClasses); journeyBtn.classList.add(...inactiveClasses); }
+
+    // Populate care team members every time the tab is opened, using the
+    // exact same shared renderer as the Home Page (name + role only).
+    if (currentPatient) {
+      const careTeamMembers = document.getElementById('care-team-members');
+      if (careTeamMembers) careTeamMembers.innerHTML = renderCareTeamList(currentPatient.careTeam);
+    }
+  } else {
+    if (journeyContent) journeyContent.classList.remove('hidden');
+    if (aiPanel) aiPanel.classList.remove('hidden');
+    if (careTeamSection) careTeamSection.classList.add('hidden');
+    if (journeyBtn) { journeyBtn.classList.remove(...inactiveClasses); journeyBtn.classList.add(...activeClasses); }
+    if (teamBtn) { teamBtn.classList.remove(...activeClasses); teamBtn.classList.add(...inactiveClasses); }
+  }
+}
+
+
+// Update renderMyCarePage to show care team
+const originalRenderMyCarePage = renderMyCarePage;
+renderMyCarePage = function() {
+  originalRenderMyCarePage();
+  
+  // Add care team rendering
+  if (currentPatient && currentPatient.careTeam) {
+    const careTeamSection = document.getElementById('care-team-members');
+    if (careTeamSection) {
+      careTeamSection.innerHTML = renderCareTeamList(currentPatient.careTeam);
+    }
+  }
+};
+

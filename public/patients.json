@@ -2,6 +2,28 @@
   "patients": [
     {
       "id": "P001",
+      "messages": [
+        {
+          "id": "m1",
+          "patientId": "P001",
+          "providerId": "p1",
+          "providerName": "Dr. Sarah Wilson",
+          "providerSpecialty": "Primary Care",
+          "content": "Your latest A1C results are in. They look good, but let's discuss your morning fasting levels at our next visit.",
+          "timestamp": "2026-07-08T15:30:00Z",
+          "isRead": false
+        },
+        {
+          "id": "m2",
+          "patientId": "P001",
+          "providerId": "p2",
+          "providerName": "Dr. James Chen",
+          "providerSpecialty": "Endocrinology",
+          "content": "I've reviewed your glucose logs. Please continue the current insulin dosage for another week.",
+          "timestamp": "2026-07-08T10:00:00Z",
+          "isRead": false
+        }
+      ],
       "name": "David Kumar",
       "age": 52,
       "gender": "Male",
@@ -46,7 +68,7 @@
           "provider": "Dr. Sarah Mitchell",
           "specialty": "Primary Care",
           "type": "Diabetes Follow-up",
-          "location": "NextGen Medical Center, Suite 201",
+          "location": "Health Medical Center, Suite 201",
           "reason": "3-month diabetes management review and medication adjustment"
         },
         {
@@ -56,7 +78,7 @@
           "provider": "Linda Torres",
           "specialty": "Diabetes Education",
           "type": "Nutrition Counseling",
-          "location": "NextGen Medical Center, Suite 105",
+          "location": "Health Medical Center, Suite 105",
           "reason": "Dietary planning and glucose monitoring education"
         }
       ],
@@ -82,7 +104,7 @@
           {
             "service": "HbA1c Laboratory Test",
             "date": "2026-05-15",
-            "provider": "NextGen Lab Services",
+            "provider": "Health Lab Services",
             "chargedAmount": 87.00,
             "insurancePaid": 72.00,
             "adjustments": 15.00,
@@ -92,7 +114,7 @@
           {
             "service": "Comprehensive Metabolic Panel",
             "date": "2026-05-15",
-            "provider": "NextGen Lab Services",
+            "provider": "Health Lab Services",
             "chargedAmount": 125.00,
             "insurancePaid": 102.00,
             "adjustments": 23.00,
@@ -191,7 +213,7 @@
           "provider": "Dr. Michael Chen",
           "specialty": "Orthopedics",
           "type": "Fracture Follow-up",
-          "location": "NextGen Orthopedic Center, Suite 300",
+          "location": "Health Orthopedic Center, Suite 300",
           "reason": "6-week post-fracture evaluation and cast removal assessment"
         }
       ]

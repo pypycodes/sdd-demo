@@ -79,7 +79,7 @@ Example — switching from OpenAI to Groq:
 
 ```bash
 AI_BASE_URL=https://api.groq.com/openai/v1
-AI_API_KEY=_your-groq-key
+AI_API_KEY=gsk_your-groq-key
 AI_MODEL=llama-3.3-70b-versatile
 ```
 
@@ -194,7 +194,7 @@ EHR (Epic/Cerner/etc.)
 
 ```
 EHR → HL7v2 messages (ADT, ORU, ORM)
-  → Integration engine (Mirth Connect / NextGen Connect)
+  → Integration engine (Integration Connect)
     → Transform to Patient + CareEvent[] types
       → POST /api/patients (custom endpoint)
 ```
